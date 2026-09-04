@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="night-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Alert Box · streamlabs.com</title>
+    <link rel="stylesheet" href="assets/roboto.css" />
+    <link rel="stylesheet" href="assets/icons.css" />
+    <link rel="stylesheet" href="assets/dashboard.css" />
+    <link rel="stylesheet" href="assets/alert-box.css" />
+  </head>
+
+  <body class="db">
+    <!-- ==========================================================
+         Alert Box widget editor (Figma 11674:6096)
+
+         A takeover, not a sub-view: the dashboard's top bar and global
+         left rail are both gone, replaced by the widget's own nav. The
+         only way back is the button at the top of that nav.
+         ========================================================== -->
+    <div class="abx">
+      <!-- ------------------------------------------------ settings nav -->
+      <aside class="abx__side">
+        <a class="abx__back" href="index.html">
+          <span class="abx__ico" style="--ico: url(media/dashboard/ab/back-arrow.svg)"></span>
+          Back to Dashboard
+        </a>
+
+        <nav class="abx__nav" aria-label="Alert Box settings">
+          <div class="abx__group">
+            <a class="abx__row" href="#">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-general.svg)"></span>
+              <span class="abx__row-t">General Settings</span>
+            </a>
+            <a class="abx__row" href="#">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-global.svg)"></span>
+              <span class="abx__row-t">Global Editing</span>
+            </a>
+          </div>
+
+          <!-- Twitch is the connected platform, so it opens by default and
+               its event list is what the form on the right is editing -->
+          <div class="abx__group">
+            <button class="abx__row" type="button" aria-expanded="true" aria-controls="ab-twitch">
+              <span class="abx__row-t">Twitch</span>
+              <span class="abx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="abx__sub" id="ab-twitch">
+              <a class="abx__row" href="#" aria-current="page"><span class="abx__row-t">Follows</span></a>
+              <a class="abx__row abx__add" href="#">
+                <span class="abx__ico" style="--ico: url(media/dashboard/ab/plus.svg)"></span>
+                <span class="abx__row-t">Add Variation</span>
+              </a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Subscriptions</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Bits</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Power-Ups</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Raids</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Charity Donations</span></a>
+            </div>
+
+            <button class="abx__row" type="button" aria-expanded="false" aria-controls="ab-youtube">
+              <span class="abx__row-t">YouTube</span>
+              <span class="abx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="abx__sub" id="ab-youtube" hidden>
+              <a class="abx__row" href="#"><span class="abx__row-t">Subscribers</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Sponsors</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Super Chats</span></a>
+            </div>
+
+            <button class="abx__row" type="button" aria-expanded="false" aria-controls="ab-tips">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-tips.svg)"></span>
+              <span class="abx__row-t">Tips</span>
+              <span class="abx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="abx__sub" id="ab-tips" hidden>
+              <a class="abx__row" href="#"><span class="abx__row-t">Donations</span></a>
+              <a class="abx__row" href="#"><span class="abx__row-t">Charity</span></a>
+            </div>
+
+            <button class="abx__row" type="button" aria-expanded="false" aria-controls="ab-bot">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-cloudbot.svg)"></span>
+              <span class="abx__row-t">Cloudbot Redemption</span>
+              <span class="abx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="abx__sub" id="ab-bot" hidden>
+              <a class="abx__row" href="#"><span class="abx__row-t">Loyalty Store</span></a>
+            </div>
+
+            <button class="abx__row" type="button" aria-expanded="false" aria-controls="ab-merch">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-merch.svg)"></span>
+              <span class="abx__row-t">Merch</span>
+              <span class="abx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="abx__sub" id="ab-merch" hidden>
+              <a class="abx__row" href="#"><span class="abx__row-t">Merch Sales</span></a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="abx__foot">
+          <a class="abx__row" href="index.html">
+            <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-connect.svg)"></span>
+            <span class="abx__row-t">Connect Platforms</span>
+          </a>
+          <a class="abx__row" href="index.html">
+            <span class="abx__ico" style="--ico: url(media/dashboard/ab/n-widgets.svg)"></span>
+            <span class="abx__row-t">All Widgets</span>
+            <span class="abx__ico" style="--ico: url(media/dashboard/ab/ext.svg); width: 12px; height: 12px"></span>
+          </a>
+        </div>
+      </aside>
+
+      <!-- ------------------------------------------------------- main -->
+      <main class="abx__main">
+        <div class="abx__head">
+          <div>
+            <h1 class="abx__h1">Alert Box</h1>
+            <p class="abx__lede">
+              Custom on-screen alerts to thank your loyal viewers for following, subbing,
+              tipping and more.
+            </p>
+          </div>
+
+          <div class="abx__theme">
+            <span class="abx__theme-l">Theme<span class="abx__i" aria-hidden="true"></span></span>
+            <button class="abx__field abx__select" type="button">
+              Default<span class="abx__caret" aria-hidden="true"></span>
+            </button>
+            <a class="abx__btn abx__btn--teal" href="index.html">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/wand.svg)"></span>
+              Browse Themes
+            </a>
+            <button class="abx__help" type="button" aria-label="Help"></button>
+          </div>
+        </div>
+
+        <h2 class="abx__url-h">Widget URL</h2>
+
+        <div class="abx__url">
+          <!-- the token stays blurred until the eye is used; the copy label
+               sits over the top of it, which is how the live page reads -->
+          <div class="abx__url-field" id="ab-url" data-shown="0">
+            <span class="abx__url-val">https://streamlabs.com/alert-box/v3/D3AB93E7E70F0B48AF14C3A122C7C86A0B14B01C9C29ADFB3DEE96BF</span>
+            <button class="abx__url-copy" type="button" id="ab-copy">
+              <span class="abx__ico" style="--ico: url(media/dashboard/ab/copy.svg)"></span>
+              Click To Copy Widget URL
+            </button>
+            <button class="abx__eye" type="button" id="ab-eye" aria-label="Reveal widget URL"></button>
+          </div>
+
+          <button class="abx__btn" type="button">Launch</button>
+          <button class="abx__field abx__select" type="button">
+            Filter Events<span class="abx__caret" aria-hidden="true"></span>
+          </button>
+          <button class="abx__btn" type="button" id="ab-test">Test</button>
+        </div>
+
+        <p class="abx__hint">
+          <span class="abx__ico" style="--ico: url(media/dashboard/ab/info-sm.svg)"></span>
+          <span>
+            Add an Alert Box source directly in <a href="index.html">Streamlabs Desktop</a> or the
+            <a href="index.html">Streamlabs Plugin for OBS</a>, or add the URL above as a browser
+            source in another software. <a href="index.html">See guide</a>
+          </span>
+        </p>
+
+        <h2 class="abx__crumb">
+          Twitch
+          <span class="abx__ico" style="--ico: url(media/dashboard/ab/crumb.svg)"></span>
+          Follows
+        </h2>
+
+        <div class="abx__cols">
+          <!-- ------------------------------------------------ settings -->
+          <div class="abx__col">
+            <section class="abx__panel">
+              <div class="abx__field-row">
+                <span class="abx__label">Enabled</span>
+                <button class="abx__switch" type="button" role="switch" aria-checked="true" aria-label="Enabled"></button>
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Positioning Mode<span class="abx__i" aria-hidden="true"></span></span>
+                <button class="abx__field abx__select" type="button">
+                  Preset<span class="abx__caret" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Layout</span>
+                <button class="abx__field abx__select" type="button">
+                  Image Above Text<span class="abx__caret" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Image<span class="abx__i" aria-hidden="true"></span></span>
+                <div class="abx__file">
+                  <img class="abx__thumb" src="assets/media/dashboard/alert-avocado.gif" alt="" width="32" height="32" />
+                  <span class="abx__file-n">Avocado.gif</span>
+                  <span class="abx__file-a">
+                    <button type="button" aria-label="Copy link">
+                      <span class="abx__ico" style="--ico: url(media/dashboard/ab/f-link.svg)"></span>
+                    </button>
+                    <button type="button" aria-label="Remove image">
+                      <span class="abx__ico" style="--ico: url(media/dashboard/ab/f-clear.svg)"></span>
+                    </button>
+                    <button type="button" aria-label="Browse library">
+                      <span class="abx__ico" style="--ico: url(media/dashboard/ab/f-browse.svg)"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Image Size<span class="abx__i" aria-hidden="true"></span></span>
+                <div class="abx__slider">
+                  <input class="abx__range" type="range" min="0" max="100" value="29" data-unit="%" aria-label="Image size" />
+                  <span class="abx__val">29%</span>
+                </div>
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Message Template<span class="abx__i" aria-hidden="true"></span></span>
+                <input class="abx__input" id="ab-msg" type="text" value="{name} is now following!" aria-label="Message template" />
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Alert Duration</span>
+                <div class="abx__slider">
+                  <input class="abx__range" type="range" min="0" max="60" value="8" data-unit="s" aria-label="Alert duration" />
+                  <span class="abx__val">8s</span>
+                </div>
+              </div>
+
+              <div class="abx__field-row">
+                <span class="abx__label">Text Delay</span>
+                <div class="abx__slider">
+                  <input class="abx__range" type="range" min="0" max="30" value="0" data-unit="s" aria-label="Text delay" />
+                  <span class="abx__val">0s</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="abx__panel">
+              <div class="abx__field-row">
+                <span class="abx__label">Sound</span>
+                <div class="abx__file">
+                  <span class="abx__thumb icon-music" aria-hidden="true" style="display: grid; place-items: center"></span>
+                  <span class="abx__file-n">default.ogg</span>
+                  <span class="abx__file-a">
+                    <button type="button" aria-label="Copy link">
+                      <span class="abx__ico" style="--ico: url(media/dashboard/ab/f-link.svg)"></span>
+                    </button>
+                    <button type="button" aria-label="Remove sound">
+                      <span class="abx__ico" style="--ico: url(media/dashboard/ab/f-clear.svg)"></span>
+                    </button>
+                    <button type="button" aria-label="Browse library">
+                      <span class="abx__ico" style="--ico: url(media/dashboard/ab/f-browse.svg)"></span>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ------------------------------------------------- preview -->
+          <div class="abx__col">
+            <section class="abx__panel abx__prev">
+              <div class="abx__notice" id="ab-notice">
+                <p>
+                  Previews will only show here. To view events in your streaming software, save
+                  your settings then click the "Test" button above.
+                </p>
+                <button type="button" aria-label="Dismiss">
+                  <span class="abx__ico" style="--ico: url(media/dashboard/ab/close.svg)"></span>
+                </button>
+              </div>
+
+              <div class="abx__stage">
+                <span class="abx__live"><i aria-hidden="true"></i>Live Preview</span>
+                <div class="abx__alert" id="ab-alert">
+                  <img src="assets/media/dashboard/alert-avocado.gif" alt="" width="116" height="116" />
+                  <p><em>Kevin</em> is now following!</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="abx__panel">
+              <div class="abx__field-row">
+                <span class="abx__label">Alert Animation<span class="abx__i" aria-hidden="true"></span></span>
+                <div class="abx__pair">
+                  <button class="abx__field abx__select" type="button">
+                    Fade In<span class="abx__caret" aria-hidden="true"></span>
+                  </button>
+                  <button class="abx__field abx__select" type="button">
+                    Fade Out<span class="abx__caret" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="abx__save">
+          <button class="abx__btn" type="button" id="ab-save">Save Settings</button>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // ---------------------------------------------------- nav disclosure
+      document.querySelectorAll('.abx__row[aria-controls]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+        });
+      });
+
+      // ------------------------------------------------------ the toggle
+      document.querySelectorAll('.abx__switch').forEach(function (sw) {
+        sw.addEventListener('click', function () {
+          sw.setAttribute('aria-checked', sw.getAttribute('aria-checked') === 'true' ? 'false' : 'true');
+        });
+      });
+
+      // ------------------------------------------------------- widget URL
+      (function () {
+        var field = document.getElementById('ab-url');
+        document.getElementById('ab-eye').addEventListener('click', function () {
+          field.dataset.shown = field.dataset.shown === '1' ? '0' : '1';
+        });
+
+        var copy = document.getElementById('ab-copy');
+        var label = copy.lastChild;
+        copy.addEventListener('click', function () {
+          var url = field.querySelector('.abx__url-val').textContent;
+          if (navigator.clipboard) navigator.clipboard.writeText(url);
+          label.nodeValue = ' Copied!';
+          setTimeout(function () { label.nodeValue = ' Click To Copy Widget URL'; }, 1400);
+        });
+      })();
+
+      // --------------------------------------------------------- sliders
+      // A range input has no pseudo-element for the track left of the thumb,
+      // so the fill is a gradient stop we move ourselves.
+      document.querySelectorAll('.abx__range').forEach(function (r) {
+        var out = r.parentNode.querySelector('.abx__val');
+        function paint() {
+          var pct = ((r.value - r.min) / (r.max - r.min)) * 100;
+          r.style.setProperty('--fill', pct + '%');
+          out.textContent = r.value + r.dataset.unit;
+        }
+        r.addEventListener('input', paint);
+        paint();
+      });
+
+      // ------------------------------------------------- preview + notice
+      document.querySelector('#ab-notice button').addEventListener('click', function () {
+        document.getElementById('ab-notice').hidden = true;
+      });
+
+      // the template drives the preview line, so editing it reads back
+      (function () {
+        var msg = document.getElementById('ab-msg');
+        var line = document.querySelector('#ab-alert p');
+        function render() {
+          var parts = msg.value.split('{name}');
+          line.innerHTML = '';
+          parts.forEach(function (p, i) {
+            if (i) {
+              var em = document.createElement('em');
+              em.textContent = 'Kevin';
+              line.appendChild(em);
+            }
+            line.appendChild(document.createTextNode(p));
+          });
+        }
+        msg.addEventListener('input', render);
+      })();
+
+      // replay the alert so Test and Save both give visible feedback
+      function replay() {
+        var a = document.getElementById('ab-alert');
+        a.style.animation = 'none';
+        void a.offsetWidth;
+        a.style.animation = 'ab-in 0.45s var(--ease)';
+      }
+
+      document.getElementById('ab-test').addEventListener('click', replay);
+
+      document.getElementById('ab-save').addEventListener('click', function () {
+        var b = this;
+        b.textContent = 'Saved';
+        replay();
+        setTimeout(function () { b.textContent = 'Save Settings'; }, 1400);
+      });
+    </script>
+
+    <style>
+      @keyframes ab-in {
+        from { opacity: 0; transform: translateY(12px) scale(0.96); }
+        to   { opacity: 1; transform: none; }
+      }
+    </style>
+  </body>
+</html>

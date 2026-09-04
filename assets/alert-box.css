@@ -120,7 +120,9 @@
 
 /* ── header ───────────────────────────────────────────────────────── */
 
-.abx__main { padding: 16px 0 0; }
+/* full viewport height so the sticky save bar rests on the bottom edge
+   even before the form is long enough to scroll */
+.abx__main { display: flex; flex-direction: column; min-height: 100vh; padding: 16px 0 0; }
 
 .abx__head {
   display: flex;
@@ -172,6 +174,16 @@
 .abx__select .abx__caret { color: var(--t2); }
 
 .abx__theme .abx__select { width: 148px; }
+
+/* Inside the panels the design draws these as plain value chips — they hug
+   their text and carry no chevron, unlike the two in the header. */
+.abx__field-row .abx__select {
+  width: auto;
+  min-width: 132px;
+  justify-self: start;
+}
+
+.abx__field-row .abx__select .abx__caret { display: none; }
 
 .abx__btn--teal {
   gap: 8px;
@@ -279,9 +291,12 @@
   font-weight: 500;
 }
 
-.abx__crumb .abx__ico { width: 8px; height: 9px; background: var(--t4); }
+/* the glyph exports pointing left; the crumb reads "Twitch > Follows", so
+   it is turned rather than exported a second time */
+.abx__crumb .abx__ico { width: 8px; height: 9px; background: var(--t4); rotate: 180deg; }
 
 .abx__cols {
+  flex: 1;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 24px;
