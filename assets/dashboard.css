@@ -1145,8 +1145,8 @@ img { display: block; max-width: 100%; }
 
 .promo__art--deck { height: 236px; }
 
-/* the artwork is zoomed past `cover` in the design — 116.9% × 137.45% of the
-   window, pulled left and up — so it is placed by hand rather than object-fit */
+/* the artwork is a 1920×1080 loop — near enough 16:9 to fill the window the
+   design draws, so it is cropped by `cover` rather than the design's own zoom */
 .deck__frame {
   position: relative;
   display: block;
@@ -1154,16 +1154,17 @@ img { display: block; max-width: 100%; }
   max-width: 100%;
   height: 237px;
   overflow: hidden;
+  border-radius: 8px;
 }
 
 .promo__art--deck img {
   position: absolute;
-  left: -16.79%;
-  top: -28.94%;
-  width: 116.9%;
-  height: 137.45%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   max-width: none;
   max-height: none;
+  object-fit: cover;
 }
 
 .promo__foot { width: 100%; padding-top: 8px; }
