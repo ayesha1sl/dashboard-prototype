@@ -448,8 +448,7 @@
 
 .abx__val { color: var(--t2); font-size: 12px; }
 
-.abx__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.abx__pair .abx__select { width: auto; }
+.abx__pair { display: flex; gap: 12px; }
 
 /* ── preview ──────────────────────────────────────────────────────── */
 

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="night-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cloudbot · streamlabs.com</title>
+    <link rel="stylesheet" href="assets/roboto.css" />
+    <link rel="stylesheet" href="assets/icons.css" />
+    <link rel="stylesheet" href="assets/dashboard.css" />
+    <link rel="stylesheet" href="assets/cloudbot.css" />
+  </head>
+
+  <body class="db">
+    <!-- ==========================================================
+         Cloudbot onboarding (Figma 11674:6645)
+
+         Sibling takeover to alert-box.html — the dashboard's top bar and
+         global rail give way to Cloudbot's own 240px nav, and the only way
+         out is the button at the top of it.
+         ========================================================== -->
+    <div class="cbx">
+      <!-- ------------------------------------------------ settings nav -->
+      <aside class="cbx__side">
+        <a class="cbx__back" href="index.html">
+          <span class="cbx__ico" style="--ico: url(media/dashboard/ab/back-arrow.svg)"></span>
+          Back to Dashboard
+        </a>
+
+        <nav class="cbx__nav" aria-label="Cloudbot">
+          <div class="cbx__group">
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-modtools.svg)"></span>
+              <span class="cbx__row-t">Mod Tools</span>
+            </a>
+
+            <button class="cbx__row" type="button" aria-expanded="false" aria-controls="cb-modules">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-modules.svg)"></span>
+              <span class="cbx__row-t">Modules</span>
+              <span class="cbx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="cbx__sub" id="cb-modules" hidden>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Chat Alerts</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Spam Protection</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Link Protection</span></a>
+            </div>
+
+            <button class="cbx__row" type="button" aria-expanded="false" aria-controls="cb-commands">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-commands.svg)"></span>
+              <span class="cbx__row-t">Commands</span>
+              <span class="cbx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="cbx__sub" id="cb-commands" hidden>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Default Commands</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Custom Commands</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Variables</span></a>
+            </div>
+
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-timers.svg)"></span>
+              <span class="cbx__row-t">Timers</span>
+            </a>
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-quotes.svg)"></span>
+              <span class="cbx__row-t">Quotes</span>
+            </a>
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-queue.svg)"></span>
+              <span class="cbx__row-t">Queue</span>
+            </a>
+
+            <button class="cbx__row" type="button" aria-expanded="false" aria-controls="cb-loyalty">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-loyalty.svg)"></span>
+              <span class="cbx__row-t">Loyalty</span>
+              <span class="cbx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="cbx__sub" id="cb-loyalty" hidden>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Settings</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Loyalty Store</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Users</span></a>
+            </div>
+
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-polls.svg)"></span>
+              <span class="cbx__row-t">Polls</span>
+            </a>
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-betting.svg)"></span>
+              <span class="cbx__row-t">Betting</span>
+            </a>
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-giveaways.svg)"></span>
+              <span class="cbx__row-t">Giveaways</span>
+            </a>
+          </div>
+
+          <div class="cbx__group">
+            <a class="cbx__row" href="#">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-users.svg)"></span>
+              <span class="cbx__row-t">User Management</span>
+            </a>
+
+            <button class="cbx__row" type="button" aria-expanded="true" aria-controls="cb-settings">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-settings.svg)"></span>
+              <span class="cbx__row-t">Settings</span>
+              <span class="cbx__caret" aria-hidden="true"></span>
+            </button>
+            <div class="cbx__sub" id="cb-settings">
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Platforms</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Custom Name</span></a>
+              <a class="cbx__row" href="#"><span class="cbx__row-t">Importer</span></a>
+            </div>
+          </div>
+
+          <div class="cbx__group">
+            <a class="cbx__row" href="cloudbot.html" aria-current="page">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/n-checklist.svg)"></span>
+              <span class="cbx__row-t">Setup Checklist</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- ------------------------------------------------------- main -->
+      <main class="cbx__main">
+        <img class="cbx__logo" src="assets/media/dashboard/cb/logo.png" alt="" width="88" height="88" />
+        <h1 class="cbx__h1">Welcome to Cloudbot!</h1>
+
+        <!-- ------------------------------------------------------ setup -->
+        <section class="cbx__card" id="cb-setup" aria-labelledby="cb-setup-h">
+          <div class="cbx__card-head">
+            <h2 class="cbx__h2" id="cb-setup-h">Setup</h2>
+            <button class="cbx__link" type="button" id="cb-close">Close Onboarding</button>
+          </div>
+
+          <div class="cbx__steps">
+            <div class="cbx__step cbx__step--done">
+              <span class="cbx__tile cbx__tile--done">
+                <span class="cbx__ico" style="--ico: url(media/dashboard/cb/t-platforms.svg)"></span>
+              </span>
+              <div>
+                <h3 class="cbx__step-h">
+                  <span class="cbx__ico" style="--ico: url(media/dashboard/cb/check.svg)"></span>
+                  Platform Connected
+                </h3>
+                <p class="cbx__step-b">
+                  Cloudbot works with Twitch, YouTube, and Kick. Connect at least one account to
+                  set up commands, moderation, and engagement tools.
+                </p>
+              </div>
+              <div class="cbx__acts">
+                <a class="cbx__link" href="index.html" style="text-align: center">Manage Platforms</a>
+              </div>
+            </div>
+
+            <div class="cbx__step" id="cb-enable" data-on="0">
+              <span class="cbx__tile cbx__tile--on">
+                <span class="cbx__ico" style="--ico: url(media/dashboard/cb/t-cloudbot.svg)"></span>
+              </span>
+              <div>
+                <h3 class="cbx__step-h">Turn on Cloudbot</h3>
+                <p class="cbx__step-b">
+                  Turn Cloudbot on to connect it to your channel and start using automation
+                  features. You can change or turn this off anytime.
+                </p>
+              </div>
+              <div class="cbx__acts">
+                <button class="cbx__btn cbx__btn--teal" type="button" id="cb-enable-btn">Enable</button>
+              </div>
+            </div>
+
+            <div class="cbx__step">
+              <span class="cbx__tile">
+                <span class="cbx__ico" style="--ico: url(media/dashboard/cb/t-import.svg)"></span>
+              </span>
+              <div>
+                <h3 class="cbx__step-h">Import your Setup</h3>
+                <p class="cbx__step-b">
+                  Already using another bot? Import your settings so you don't have to rebuild
+                  everything from scratch. This keeps your stream running smoothly from day one.
+                </p>
+                <a class="cbx__learn" href="index.html">
+                  <span class="cbx__ico" style="--ico: url(media/dashboard/ab/ext.svg)"></span>
+                  Learn More
+                </a>
+              </div>
+              <div class="cbx__acts">
+                <button class="cbx__btn cbx__btn--dark" type="button">
+                  <img src="assets/media/dashboard/cb/streamelements.png" alt="" width="20" height="20" />
+                  Import from StreamElements
+                </button>
+                <button class="cbx__btn" type="button">
+                  Other Import Options
+                  <span class="cbx__caret" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ------------------------------------------------ help centre -->
+        <section class="cbx__card" aria-labelledby="cb-help-h">
+          <div class="cbx__help-head">
+            <h2 class="cbx__h2" id="cb-help-h" style="font-size: 16px">Help Center</h2>
+            <span class="cbx__support">
+              <span class="cbx__ico" style="--ico: url(media/dashboard/cb/support.svg)"></span>
+              <span>Need support? Submit a ticket <a href="index.html">here</a>.</span>
+            </span>
+          </div>
+
+          <div class="cbx__search">
+            <span class="cbx__ico" style="--ico: url(media/dashboard/cb/search.svg)"></span>
+            <input type="search" placeholder="What do you want to learn about?" aria-label="Search the help centre" />
+          </div>
+
+          <div class="cbx__topics">
+            <a class="cbx__topic" href="#">Common Problems &amp; Solutions</a>
+            <a class="cbx__topic" href="#">How to Set up Loyalty Points</a>
+            <a class="cbx__topic" href="#">How to Set up Custom Commands and Variables (Pt. I)</a>
+            <a class="cbx__topic" href="#">How to Run a Giveaway</a>
+            <a class="cbx__topic" href="#">How to Use Timers, Queue, and Quotes</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // ---------------------------------------------------- nav disclosure
+      document.querySelectorAll('.cbx__row[aria-controls]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+        });
+      });
+
+      // ------------------------------------------------------- onboarding
+      // Enabling is the one step the user can actually complete here, so it
+      // strikes itself through the way the connected step already is.
+      (function () {
+        var step = document.getElementById('cb-enable');
+        var btn = document.getElementById('cb-enable-btn');
+        btn.addEventListener('click', function () {
+          var on = step.dataset.on === '1';
+          step.dataset.on = on ? '0' : '1';
+          btn.textContent = on ? 'Enable' : 'Enabled';
+          btn.classList.toggle('cbx__btn--teal', on);
+        });
+      })();
+
+      document.getElementById('cb-close').addEventListener('click', function () {
+        document.getElementById('cb-setup').hidden = true;
+      });
+    </script>
+  </body>
+</html>
