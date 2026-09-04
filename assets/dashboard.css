@@ -972,8 +972,22 @@ img { display: block; max-width: 100%; }
 /* the design's "sparklines" are stroked lines with round caps, one per platform,
    3px apart — a flex row of pills reproduces them exactly and lets a segment
    drop out cleanly when its platform is not connected */
-.stat__spark { display: flex; gap: 3px; }
-.stat__spark i { height: 11px; flex: none; border-radius: 999px; background: var(--brand); }
+/* The per-segment widths inline in the markup are the design's, measured on a
+   wider tile than this grid gives us — three connected platforms alone come to
+   224px inside a ~184px box. So they are a *basis*, not a fixed size: every
+   segment shrinks, and flexbox takes it in proportion to that basis, which
+   scales the whole row by one factor and leaves the relative bar lengths
+   exactly as drawn. The row only shrinks when it has to, so at one or two
+   platforms the bars still sit at their design widths. */
+.stat__spark { display: flex; gap: 3px; min-width: 0; }
+
+.stat__spark i {
+  height: 11px;
+  flex: 0 1 auto;                  /* basis = the inline width */
+  min-width: 5px;                  /* a shrunken segment stays a visible dot */
+  border-radius: 999px;
+  background: var(--brand);
+}
 
 #snap[data-empty] .legend,
 #snap[data-empty] .stat__num,
