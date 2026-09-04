@@ -230,12 +230,13 @@
 
 .wg__favs { background: var(--deep); }
 
+/* deco-featured.svg already bakes Figma's 0.1 group opacity into the file,
+   so no extra opacity here — layering one would erase it. */
 .wg__feat-deco {
   position: absolute;
   top: 16px;
   right: 0;
   width: 292px;
-  opacity: 0.35;
   pointer-events: none;
 }
 

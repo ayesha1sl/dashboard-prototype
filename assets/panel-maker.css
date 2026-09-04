@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Panel Maker — Twitch Panel Templates (Figma 11677:20416,
+   main column 11677:20651)
+
+   Like Tipping, this is NOT a takeover: the dashboard top bar and left rail
+   carry over unchanged and only the main column is replaced, with Panel Maker
+   taking the rail's selected state. Everything is scoped under .pm so it can't
+   leak into the shell it borrows.
+   ========================================================================== */
+
+.pm {
+  display: flex;
+  flex-direction: column;
+  max-width: 1328px;
+  padding-bottom: 24px;
+}
+
+.pm__h1 {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--t1);
+}
+
+/* ── template grid ───────────────────────────────────────────────── */
+/* Four 314px columns at 1328px wide; below that they simply reflow. */
+
+.pm__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.pm__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--card);
+}
+
+/* Each template tints its own card: the theme's first swatch, washed out to
+   8% and fading into the card colour by 65% of the height. --accent is set
+   per card in the HTML. */
+.pm__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background: linear-gradient(to bottom, var(--accent), var(--card) 65%);
+  pointer-events: none;
+}
+
+.pm__card > * { position: relative; z-index: 1; }
+
+/* The previews are all 282px wide in the design and differ only in height,
+   which is just their natural aspect ratio — so let the image set it. */
+.pm__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pm__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 16.09px;
+}
+
+.pm__name {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.1px;
+  color: var(--t1);
+}
+
+.pm__new { flex: none; color: #c57bff; }
+
+/* the theme's colourways, as 12px dots */
+.pm__dots { display: flex; flex: none; align-items: center; gap: 6px; }
+
+.pm__dot {
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(9, 22, 29, 0.16);
+  border-radius: 50%;
+}
+
+.pm__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 13px;
+  border-radius: 4px;
+  background: var(--btn);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--t1);
+  cursor: pointer;
+  transition: background 0.15s var(--ease);
+}
+
+.pm__cta:hover { background: var(--btn-hi); }
+
+/* ── pagination ──────────────────────────────────────────────────── */
+/* Prev / 1 2 3 … 25 / Next, centred, with 56px of air either side of the
+   number strip. Page 1 is current, so Prev is drawn disabled. */
+
+.pm__pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.pm__step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 40px;
+  border-radius: 4px;
+  background: var(--btn);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19.6px;
+  color: var(--t2);
+  cursor: pointer;
+  transition: background 0.15s var(--ease);
+}
+
+.pm__step:hover { background: var(--btn-hi); }
+
+.pm__step--prev { margin-right: 56px; }
+.pm__step--next { margin-left: 56px; }
+
+.pm__step[disabled] {
+  background: var(--card);
+  color: var(--btn);
+  cursor: default;
+}
+
+.pm__step[disabled]:hover { background: var(--card); }
+
+.pm__page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  margin: 0 4px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background: var(--card);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19.6px;
+  color: var(--t2);
+  cursor: pointer;
+  transition: background 0.15s var(--ease);
+}
+
+.pm__page:hover { background: #33424a; }
+.pm__page.is-current { background: var(--deep); }
+.pm__page.is-current:hover { background: var(--deep); }
+
+/* the ellipsis is a label, not a target */
+.pm__gap {
+  background: none;
+  cursor: default;
+  padding: 0 8px;
+  min-width: 0;
+}
+
+.pm__gap:hover { background: none; }
+
+/* ── narrower ────────────────────────────────────────────────────── */
+
+@media (max-width: 1240px) {
+  .pm__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 960px) {
+  .pm__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pm__step--prev { margin-right: 16px; }
+  .pm__step--next { margin-left: 16px; }
+}
+
+@media (max-width: 620px) {
+  .pm__grid { grid-template-columns: minmax(0, 1fr); }
+}
