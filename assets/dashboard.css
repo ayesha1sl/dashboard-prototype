@@ -505,51 +505,61 @@ img { display: block; max-width: 100%; }
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 275px;
+  /* `promo` is a single slot that rotates: the follow-alert card to start, then
+     Cloudbot once that is dismissed, then nothing. `deck` under it is the promo
+     carousel, which stays put. */
   grid-template-areas:
-    'setup alert rail'
-    'snap  bot   rail';
+    'setup promo rail'
+    'snap  deck  rail';
   gap: 24px;
   align-items: start;
 }
 
 /* growth mode: the checklist grows down the left column and the
-   follow-alert promo steps aside (11385:70520). */
+   promo slot steps aside (11385:70520). */
 .grid[data-growth='on'] {
   grid-template-areas:
     'setup snap rail'
-    'setup bot  rail';
+    'setup deck rail';
 }
 
-/* Dismiss retires the checklist; Snapshot inherits the column it was in so the
-   layout closes up instead of leaving a hole where the card used to be */
+/* Dismiss retires the checklist; the promo deck inherits the column it was in
+   so the layout closes up instead of leaving a hole */
 .grid[data-setup='off'] {
   grid-template-areas:
-    'snap alert rail'
-    'bot  .     rail';
+    'snap promo rail'
+    'deck .     rail';
 }
 
 .grid[data-setup='off'] #setup { display: none; }
 
-/* closing the follow-alert promo hands its cell to Cloudbot the same way */
-.grid[data-alert='off'] {
+/* the promo slot empties once Cloudbot is dismissed too, and the deck rises */
+.grid[data-promo='none'] {
   grid-template-areas:
-    'setup bot rail'
-    'snap  .   rail';
+    'setup deck rail'
+    'snap  .    rail';
 }
 
-.grid[data-setup='off'][data-alert='off'] {
-  grid-template-areas: 'snap bot rail';
-}
+.grid[data-setup='off'][data-promo='none'] { grid-template-areas: 'snap deck rail'; }
 
-.grid[data-alert='off'] #alert { display: none; }
+/* which card is holding the promo slot right now. Cloudbot only ever appears
+   after the follow-alert card is closed, so it starts out hidden; growth mode
+   empties the slot altogether. */
+#bot,
+.grid[data-promo='bot'] #alert,
+.grid[data-promo='none'] #alert,
+.grid[data-growth='on'] #alert,
+.grid[data-growth='on'] #bot { display: none; }
 
-.grid[data-growth='on'] #alert { display: none; }
+.grid[data-promo='bot']:not([data-growth='on']) #bot { display: flex; }
+
 .grid[data-growth='on'] #snap { align-self: start; }
 
 #setup { grid-area: setup; }
 #snap  { grid-area: snap; }
-#alert { grid-area: alert; }
-#bot   { grid-area: bot; }
+#alert { grid-area: promo; }
+#bot   { grid-area: promo; }
+#deck  { grid-area: deck; }
 .ads   { grid-area: rail; }
 
 /* ── shared card ─────────────────────────────────────────────────── */
@@ -1086,8 +1096,9 @@ img { display: block; max-width: 100%; }
 /* cloudbot (11710:55075): a 290px graphic area with the chat loop inset 6px top
    and bottom, so 278px of image on a 12px radius. The gif is 577×486 — a
    taller aspect than the slot — so it is sized by height and centred rather
-   than cropped to fill. The card runs 25px taller than the alert promo. */
-.promo--bot { height: 520px; }
+   than cropped to fill. The design draws the card 25px taller than the alert
+   promo; it keeps the shared 495px instead so the slot doesn't jump when the
+   two swap. There is enough slack in the layout to absorb it. */
 .promo__art--bot { height: 290px; }
 
 .promo__art--bot img {
@@ -1096,6 +1107,63 @@ img { display: block; max-width: 100%; }
   max-width: 100%;
   border-radius: 12px;
   object-fit: contain;
+}
+
+/* promo deck (11732:60584): same shell, with a pager above the copy and a
+   423×237 window onto the themes artwork */
+.deck__nav {
+  display: flex;
+  width: 100%;
+  height: 24px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.deck__count { flex: 1; text-align: center; color: var(--t1); font-size: 13px; font-weight: 500; }
+
+.deck__arrow {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex: none;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.07);
+  transition: background 0.15s var(--ease);
+}
+
+.deck__arrow:hover { background: rgba(255, 255, 255, 0.16); }
+
+.deck__chev {
+  width: 12px;
+  height: 12px;
+  background: var(--t1);
+  -webkit-mask: var(--ico) no-repeat center / contain;
+  mask: var(--ico) no-repeat center / contain;
+}
+
+.promo__art--deck { height: 236px; }
+
+/* the artwork is zoomed past `cover` in the design — 116.9% × 137.45% of the
+   window, pulled left and up — so it is placed by hand rather than object-fit */
+.deck__frame {
+  position: relative;
+  display: block;
+  width: 423px;
+  max-width: 100%;
+  height: 237px;
+  overflow: hidden;
+}
+
+.promo__art--deck img {
+  position: absolute;
+  left: -16.79%;
+  top: -28.94%;
+  width: 116.9%;
+  height: 137.45%;
+  max-width: none;
+  max-height: none;
 }
 
 .promo__foot { width: 100%; padding-top: 8px; }
@@ -1635,27 +1703,24 @@ img { display: block; max-width: 100%; }
 /* ── narrower viewports ──────────────────────────────────────────── */
 
 @media (max-width: 1420px) {
-  .grid,
-  .grid[data-growth='on'],
-  .grid[data-setup='off'][data-alert='off'] {
+  /* addressed by id so no stack of [data-*] variants can out-specify it */
+  #grid {
     grid-template-columns: minmax(0, 1fr) 275px;
     grid-template-areas:
       'setup rail'
-      'alert rail'
+      'promo rail'
       'snap  rail'
-      'bot   rail';
+      'deck  rail';
   }
 
-  #setup, #snap, #alert, #bot { height: auto; min-height: 0; }
+  #setup, #snap, #alert, #bot, #deck { height: auto; min-height: 0; }
   .stats { min-height: 216px; }
 }
 
 @media (max-width: 1080px) {
-  .grid,
-  .grid[data-growth='on'],
-  .grid[data-setup='off'][data-alert='off'] {
+  #grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'setup' 'alert' 'snap' 'bot' 'rail';
+    grid-template-areas: 'setup' 'promo' 'snap' 'deck' 'rail';
   }
 
   .ads { flex-direction: row; flex-wrap: wrap; }

@@ -569,6 +569,37 @@
               <div class="promo__foot"><button class="promo__btn" type="button">Get Cloudbot</button></div>
             </section>
 
+            <!-- ------------------------------------------- promo deck (11732:60584) -->
+            <!-- the card that sits under the rotating promo slot: a paged deck of
+                 Alert Box themes. The arrows are part of the design's furniture;
+                 there is only one page of artwork in the prototype. -->
+            <section class="card promo promo--deck" id="deck" aria-labelledby="deck-h">
+              <div class="deck__nav">
+                <button class="deck__arrow" type="button" aria-label="Previous">
+                  <span class="deck__chev" style="--ico: url(media/dashboard/promo/chev-left.svg)"></span>
+                </button>
+                <span class="deck__count">1 / 5</span>
+                <button class="deck__arrow" type="button" aria-label="Next">
+                  <span class="deck__chev" style="--ico: url(media/dashboard/promo/chev-right.svg)"></span>
+                </button>
+              </div>
+              <div class="promo__copy">
+                <h2 class="promo__title" id="deck-h">Customize <em>what viewers see</em> when they follow you</h2>
+                <p class="promo__sub">
+                  Choose how every follow, sub, and tip looks, sounds, and celebrates your
+                  community — with reactive alerts powered by AI.
+                </p>
+              </div>
+              <div class="promo__art promo__art--deck">
+                <span class="deck__frame">
+                  <img src="assets/media/dashboard/promo/alert-themes.gif" alt="" width="1920" height="1080" />
+                </span>
+              </div>
+              <div class="promo__foot">
+                <button class="promo__btn" type="button">Browse Alert Box themes</button>
+              </div>
+            </section>
+
             <!-- -------------------------------------------------- side rail -->
             <aside class="ads" aria-label="Offers">
               <!-- platform connections (11478:7951) -->
@@ -1151,10 +1182,16 @@
         sync();
       })();
 
-      // ------------------------------------- dismiss the follow-alert promo
-      // no confirmation here — 11732:60635 just closes (Cloudbot takes the cell)
+      // ------------------------------------------------- the promo slot
+      // One cell above the deck cycles through promos as they are dismissed:
+      // follow alert (11732:60635) → Cloudbot (11710:55075) → empty. Neither
+      // close asks for confirmation; the deck below rises when the slot empties.
       document.getElementById('alert-x').addEventListener('click', function () {
-        document.getElementById('grid').dataset.alert = 'off';
+        document.getElementById('grid').dataset.promo = 'bot';
+      });
+
+      document.getElementById('bot-x').addEventListener('click', function () {
+        document.getElementById('grid').dataset.promo = 'none';
       });
 
       // ---------------------------------------------- dismiss the banner
