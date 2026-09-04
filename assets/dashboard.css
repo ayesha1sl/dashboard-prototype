@@ -1763,17 +1763,18 @@ img { display: block; max-width: 100%; }
       'setup rail'
       'promo rail'
       'snap  rail'
-      'deck  rail';
+      'deck  rail'
+      'more  rail';
   }
 
-  #setup, #snap, #alert, #bot, #deck { height: auto; min-height: 0; }
+  #setup, #snap, #alert, #bot, #deck, #more { height: auto; min-height: 0; }
   .stats { min-height: 216px; }
 }
 
 @media (max-width: 1080px) {
   #grid {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: 'setup' 'promo' 'snap' 'deck' 'rail';
+    grid-template-areas: 'setup' 'promo' 'snap' 'deck' 'more' 'rail';
   }
 
   .ads { flex-direction: row; flex-wrap: wrap; }
