@@ -1,0 +1,659 @@
+export default function Container() {
+ return (
+ <div data-name="Container">
+ <div data-name="Background">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p style={{ fontVariationSettings: '"wdth" 100' }}>
+ Back to Dashboard
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon1} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p style={{ fontVariationSettings: '"wdth" 100' }}>
+ All Widgets
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon2} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Alert Box</p>
+ </div>
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon3} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon4} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Game Pulse</p>
+ </div>
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon3} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon5} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Chat Box</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon6} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Event List</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon7} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Viewer Count</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Interactive</p>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon8} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon" />
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Emote Wall</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon" />
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Chat Highlight</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon9} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Poll</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon10} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >The Jar</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon" />
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Spin Wheel</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon11} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Media Share</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon12} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Stream Boss</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Goals</p>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon8} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon13} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Tip Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon14} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Follower Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon15} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Sub Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon16} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Bit Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon17} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Super Chat Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon18} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Youtube Member Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Flair</p>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon8} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon19} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Stream Labels</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon20} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Tip Ticker</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon" />
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >End Credits</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon21} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Sponsor Banner</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Charity</p>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon8} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon22} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Streamlabs Charity Donation</p>
+ <p >Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon23} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Tiltify Donation Goal</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Background">
+ <div data-name="Container">
+ <div data-name="Link">
+ <div data-name="Margin">
+ <div data-name="Container">
+ <div >
+ <div >
+ <div data-name="Icon">
+ <img alt="" src={imgIcon24} />
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div data-name="Container">
+ <div style={{ fontVariationSettings: '"wdth" 100' }}>
+ <p >Connect Platforms</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ );
+}

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" class="night-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Widget Gallery · streamlabs.com</title>
+    <link rel="stylesheet" href="assets/roboto.css" />
+    <link rel="stylesheet" href="assets/icons.css" />
+    <link rel="stylesheet" href="assets/dashboard.css" />
+    <link rel="stylesheet" href="assets/widgets.css" />
+  </head>
+
+  <body class="db">
+    <!-- ==========================================================
+         Widget Gallery (Figma 11766:11209)
+
+         A takeover like alert-box.html / cloudbot.html / themes.html: the
+         dashboard chrome gives way to the gallery's own 240px nav, and
+         "Back to Dashboard" is the only way out.
+         ========================================================== -->
+    <div class="wg">
+      <!-- ======================================================= side nav -->
+      <aside class="wg__side">
+        <a class="wg__back" href="index.html">
+          <span class="wg__ico" style="--ico: url(media/dashboard/wg/back.svg)"></span>
+          Back to Dashboard
+        </a>
+
+        <nav class="wg__nav" aria-label="Widgets">
+          <div class="wg__group">
+            <a class="wg__row is-active" href="widgets.html" aria-current="page">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-all.svg)"></span>
+              <span class="wg__row-t">All Widgets</span>
+            </a>
+            <a class="wg__row" href="alert-box.html">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-alertbox.svg)"></span>
+              <span class="wg__row-t">Alert Box</span>
+              <span class="wg__row-b" aria-hidden="true"></span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-gamepulse.svg)"></span>
+              <span class="wg__row-t">Game Pulse</span>
+              <span class="wg__row-b" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="wg__group">
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-chatbox.svg)"></span>
+              <span class="wg__row-t">Chat Box</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-eventlist.svg)"></span>
+              <span class="wg__row-t">Event List</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-viewercount.svg)"></span>
+              <span class="wg__row-t">Viewer Count</span>
+            </a>
+          </div>
+
+          <div class="wg__group">
+            <div class="wg__group-h">
+              Interactive<span class="wg__ico" style="--ico: url(media/dashboard/wg/caret.svg)"></span>
+            </div>
+            <!-- Emote Wall, Chat Highlight and Spin Wheel carry no glyph in the
+                 design; the spacer keeps their labels on the same indent. -->
+            <a class="wg__row" href="#"><span class="wg__ico wg__ico--none"></span><span class="wg__row-t">Emote Wall</span></a>
+            <a class="wg__row" href="#"><span class="wg__ico wg__ico--none"></span><span class="wg__row-t">Chat Highlight</span></a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-poll.svg)"></span>
+              <span class="wg__row-t">Poll</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-jar.svg)"></span>
+              <span class="wg__row-t">The Jar</span>
+            </a>
+            <a class="wg__row" href="#"><span class="wg__ico wg__ico--none"></span><span class="wg__row-t">Spin Wheel</span></a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-mediashare.svg)"></span>
+              <span class="wg__row-t">Media Share</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-streamboss.svg)"></span>
+              <span class="wg__row-t">Stream Boss</span>
+            </a>
+          </div>
+
+          <div class="wg__group">
+            <div class="wg__group-h">
+              Goals<span class="wg__ico" style="--ico: url(media/dashboard/wg/caret.svg)"></span>
+            </div>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-tipgoal.svg)"></span>
+              <span class="wg__row-t">Tip Goal</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-followergoal.svg)"></span>
+              <span class="wg__row-t">Follower Goal</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-subgoal.svg)"></span>
+              <span class="wg__row-t">Sub Goal</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-bitgoal.svg)"></span>
+              <span class="wg__row-t">Bit Goal</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-superchatgoal.svg)"></span>
+              <span class="wg__row-t">Super Chat Goal</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-ytmembergoal.svg)"></span>
+              <span class="wg__row-t">Youtube Member Goal</span>
+            </a>
+          </div>
+
+          <div class="wg__group">
+            <div class="wg__group-h">
+              Flair<span class="wg__ico" style="--ico: url(media/dashboard/wg/caret.svg)"></span>
+            </div>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-streamlabels.svg)"></span>
+              <span class="wg__row-t">Stream Labels</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-tipticker.svg)"></span>
+              <span class="wg__row-t">Tip Ticker</span>
+            </a>
+            <a class="wg__row" href="#"><span class="wg__ico wg__ico--none"></span><span class="wg__row-t">End Credits</span></a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-sponsorbanner.svg)"></span>
+              <span class="wg__row-t">Sponsor Banner</span>
+            </a>
+          </div>
+
+          <div class="wg__group">
+            <div class="wg__group-h">
+              Charity<span class="wg__ico" style="--ico: url(media/dashboard/wg/caret.svg)"></span>
+            </div>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-slcharity.svg)"></span>
+              <span class="wg__row-t">Streamlabs Charity Donation Goal</span>
+            </a>
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-tiltify.svg)"></span>
+              <span class="wg__row-t">Tiltify Donation Goal</span>
+            </a>
+          </div>
+
+          <div class="wg__group">
+            <a class="wg__row" href="#">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/n-connect.svg)"></span>
+              <span class="wg__row-t">Connect Platforms</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- =========================================================== main -->
+      <main class="wg__main">
+        <!-- ------------------------------------------------------ header -->
+        <div>
+          <h1 class="wg__title">Widget Gallery</h1>
+          <p class="wg__lede">Choose from a wide variety of streaming widgets to enhance your broadcast</p>
+        </div>
+
+        <!-- ------------------------------------------------- theme promo -->
+        <section class="wg__promo">
+          <div class="wg__promo-deco" aria-hidden="true">
+            <img src="assets/media/dashboard/wg/promo-v1.svg" alt="" />
+            <img src="assets/media/dashboard/wg/promo-v2.svg" alt="" />
+          </div>
+
+          <div class="wg__promo-txt">
+            <h2 class="wg__h">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/h-themes.svg)"></span>
+              Widget Theme Library
+            </h2>
+            <p class="wg__promo-p">Browse our premade widget themes to find one that matches your brand and style.</p>
+            <a class="wg__promo-cta" href="themes.html">Browse Widget Themes</a>
+          </div>
+
+          <img class="wg__promo-art" src="assets/media/dashboard/wg/promo-collage.png" alt="" />
+        </section>
+
+        <!-- ----------------------------------------------------- featured -->
+        <section class="wg__feat">
+          <img class="wg__feat-deco" src="assets/media/dashboard/wg/deco-featured.svg" alt="" aria-hidden="true" />
+
+          <h2 class="wg__h">
+            <span class="wg__ico" style="--ico: url(media/dashboard/wg/h-featured.svg)"></span>
+            Featured
+          </h2>
+
+          <div class="wg__rail">
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/f-gamepulse.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-gamepulse.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Game Pulse</span>
+                  <span class="wg__desc">Real time alerts reacting to your in-game events. Supports Windows only.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/f-emotewall.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Emote Wall</span>
+                  <span class="wg__desc">Display and animate emotes from chat.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/f-chathighlight.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Chat Highlight</span>
+                  <span class="wg__desc">Pin and highlight chat messages.</span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <!-- ------------------------------------------------ our favorites -->
+        <section class="wg__favs">
+          <h2 class="wg__h">
+            <span class="wg__ico" style="--ico: url(media/dashboard/wg/h-favorites.svg)"></span>
+            Our Favorites
+          </h2>
+
+          <div class="wg__rail">
+            <a class="wg__card" href="alert-box.html">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/fav-alertbox.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-alertbox.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Alert Box</span>
+                  <span class="wg__desc">Custom on-screen alerts to thank your loyal viewers for following, subbing, tipping and more.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/fav-chatbox.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-chatbox.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Chat Box</span>
+                  <span class="wg__desc">Display your chat on stream and set up sound notification for new chats.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/fav-eventlist.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-eventlist.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Event List</span>
+                  <span class="wg__desc">Display your channel’s more recent events on stream.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/fav-viewercount.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-viewercount.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Viewer Count</span>
+                  <span class="wg__desc">Show the number of viewers watching.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/fav-followergoal.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-followergoal.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Follower Goal</span>
+                  <span class="wg__desc">Set a follower goal for your viewers to help you reach.</span>
+                </span>
+              </span>
+            </a>
+
+            <a class="wg__card" href="#">
+              <img class="wg__card-art" src="assets/media/dashboard/wg/fav-tipgoal.png" alt="" />
+              <span class="wg__card-body">
+                <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-tipgoal.svg)"></span></span>
+                <span class="wg__meta">
+                  <span class="wg__name">Tip Goal</span>
+                  <span class="wg__desc">Set a tip goal to encourage your viewers to contribute toward something.</span>
+                </span>
+              </span>
+            </a>
+          </div>
+        </section>
+
+        <!-- -------------------------------------------------- all widgets -->
+        <section class="wg__all">
+          <div class="wg__bar">
+            <h2 class="wg__h">
+              <span class="wg__ico" style="--ico: url(media/dashboard/wg/h-allwidgets.svg)"></span>
+              All Widgets
+            </h2>
+
+            <div class="wg__tools">
+              <div class="wg__search">
+                <span class="wg__ico" style="--ico: url(media/dashboard/wg/search.svg)"></span>
+                <input type="search" placeholder="Search Widgets" aria-label="Search widgets" />
+              </div>
+
+              <button class="wg__select" type="button">
+                <span class="wg__ico" style="--ico: url(media/dashboard/wg/filter.svg)"></span>
+                All Platforms
+              </button>
+
+              <button class="wg__select" type="button">All Categories</button>
+            </div>
+          </div>
+
+          <div class="wg__grid">
+            <a class="wg__item" href="alert-box.html">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-alertbox.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Alert Box</span>
+                <span class="wg__desc">Custom on-screen alerts to thank your loyal viewers for following, subbing, tipping and more.</span>
+              </span>
+            </a>
+
+            <a class="wg__item wg__item--new" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-gamepulse.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Game Pulse</span>
+                <span class="wg__desc">Real time alerts reacting to your in-game events. Supports Windows only.</span>
+              </span>
+              <span class="wg__new">New</span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-mediashare.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Media Share</span>
+                <span class="wg__desc">Allow your viewers to tip to share videos on your stream.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-streamlabels.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Stream Labels</span>
+                <span class="wg__desc">Include text into your stream, such as follower count, latest tip, latest sub and more.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-tipgoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Tip Goal</span>
+                <span class="wg__desc">Set a tip goal to encourage your viewers to contribute toward something.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-jar.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">The Jar</span>
+                <span class="wg__desc">A jar that catches and displays bits, tips, subs and more.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-eventlist.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Event List</span>
+                <span class="wg__desc">Display your channel’s more recent events on stream.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-chatbox.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Chat Box</span>
+                <span class="wg__desc">Display your chat on stream and set up sound notification for new chats.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"></span>
+              <span class="wg__meta">
+                <span class="wg__name">End Credits</span>
+                <span class="wg__desc">Roll credits at the end of your broadcast to thank supporters for tipping, following, subbing, modding and more.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-tipticker.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Tip Ticker</span>
+                <span class="wg__desc">Show off the most recent tips from your viewers.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-streamboss.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Stream Boss</span>
+                <span class="wg__desc">Let your viewers duke it out by subbing, tipping and more to become the Stream Boss.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"></span>
+              <span class="wg__meta">
+                <span class="wg__name">Spin Wheel</span>
+                <span class="wg__desc">Let your viewers spin a custom spin wheel to win prizes or incentives.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-sponsorbanner.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Sponsor Banner</span>
+                <span class="wg__desc">Show off rotating media to display your socials, sponsorships, CTAs or just cute animations.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-subgoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Sub Goal</span>
+                <span class="wg__desc">Set a subscriber goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-ytmembergoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Youtube Member Goal</span>
+                <span class="wg__desc">Set a member goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-viewercount.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Viewer Count</span>
+                <span class="wg__desc">Show the number of viewers watching.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"></span>
+              <span class="wg__meta">
+                <span class="wg__name">Emote Wall</span>
+                <span class="wg__desc">Display and animate emotes from chat.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"></span>
+              <span class="wg__meta">
+                <span class="wg__name">Chat Highlight</span>
+                <span class="wg__desc">Pin and highlight chat messages.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-bitgoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Bit Goal</span>
+                <span class="wg__desc">Set a bit goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-followergoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Follower Goal</span>
+                <span class="wg__desc">Set a follower goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-ytsubgoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">YouTube Subscriber Goal</span>
+                <span class="wg__desc">Set a subscriber goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-tiltify.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Tiltify Donation Goal</span>
+                <span class="wg__desc">Set a charity donation goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-poll.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Poll</span>
+                <span class="wg__desc">Start a poll to include your viewers in the broadcast.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-slcharity.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Streamlabs Charity Donation Goal</span>
+                <span class="wg__desc">Set a charity donation goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-superchatgoal.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Super Chat Goal</span>
+                <span class="wg__desc">Set up a super chat goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+
+            <a class="wg__item" href="#">
+              <span class="wg__tile"><span class="wg__ico" style="--ico: url(media/dashboard/wg/g-sponsorapp.svg)"></span></span>
+              <span class="wg__meta">
+                <span class="wg__name">Sponsorships App Conversion Goal</span>
+                <span class="wg__desc">Set a Sponsorships App conversion goal for your viewers to help you reach.</span>
+              </span>
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // The gallery's search box is the only live control: it filters the
+      // "All Widgets" grid by name so the page has something to do.
+      (function () {
+        var box = document.querySelector('.wg__search input');
+        var items = Array.prototype.slice.call(document.querySelectorAll('.wg__item'));
+        if (!box) return;
+        box.addEventListener('input', function () {
+          var q = box.value.trim().toLowerCase();
+          items.forEach(function (el) {
+            var name = el.querySelector('.wg__name').textContent.toLowerCase();
+            el.style.display = !q || name.indexOf(q) !== -1 ? '' : 'none';
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

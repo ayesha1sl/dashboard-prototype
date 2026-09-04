@@ -1,0 +1,423 @@
+/*
+ * streamlabs.com — Widget Gallery
+ * ------------------------------------------------------------------
+ * Source (Figma "Onboarding and Dashboard"):  11766:11209
+ *
+ * A full-page takeover, same family as alert-box.css / cloudbot.css /
+ * themes.css: the dashboard's top bar and global rail step aside for the
+ * gallery's own 240px nav, and "Back to Dashboard" is the way out.
+ * Tokens, reset and fonts all come from dashboard.css.
+ *
+ * The project-wide icon gotcha applies here too — a url() handed in through
+ * var(--ico) resolves against *this* stylesheet, so every --ico is written
+ * url(media/dashboard/wg/…) even when it is set inline in the HTML.
+ *
+ * Figma exports these glyphs y-flipped (the -scale-y-100 wrapper in its
+ * output), so every masked icon carries transform: scaleY(-1), matching
+ * .rail__ico in dashboard.css.
+ */
+
+.wg {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 32px;
+  max-width: 1908px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+/* ============================================================ side nav === */
+
+.wg__side {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 8px 19px 24px 8px;
+}
+
+.wg__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: var(--btn);
+  color: var(--t1);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s var(--ease);
+}
+
+.wg__back:hover { background: var(--btn-hi); }
+
+/* every masked glyph in the nav and the section headings */
+.wg__ico {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: currentColor;
+  -webkit-mask: var(--ico) no-repeat center / contain;
+  mask: var(--ico) no-repeat center / contain;
+  transform: scaleY(-1);
+}
+
+.wg__nav { margin-top: 20px; }
+
+/* 24px between groups, 16px from a group's header to its first row */
+.wg__group + .wg__group { margin-top: 24px; }
+
+.wg__group-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--t1);
+}
+
+.wg__group-h .wg__ico { width: 14px; height: 14px; }
+
+.wg__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--t2);
+  transition: color 0.12s var(--ease);
+}
+
+.wg__row + .wg__row { margin-top: 12px; }
+.wg__row:hover { color: var(--t1); }
+.wg__row.is-active { color: var(--t1); }
+
+/* the glyph rides the first line of a label that may wrap to two */
+.wg__row .wg__ico { margin-top: 3.5px; color: var(--t4); }
+.wg__row:hover .wg__ico,
+.wg__row.is-active .wg__ico { color: var(--t2); }
+.wg__row.is-active .wg__ico { color: var(--t1); }
+
+/* four rows ship without a glyph in the design itself — Emote Wall, Chat
+   Highlight, Spin Wheel and End Credits — so they get a spacer instead of
+   an invented icon, keeping every label on the same indent. */
+.wg__ico--none { background: none; }
+
+.wg__row-t { flex: 1; min-width: 0; }
+
+/* the little "opens elsewhere" mark trailing Alert Box and Game Pulse */
+.wg__row-b {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-top: 4.5px;
+  background: var(--t2);
+  -webkit-mask: url(media/dashboard/wg/n-badge.svg) no-repeat center / contain;
+  mask: url(media/dashboard/wg/n-badge.svg) no-repeat center / contain;
+  transform: scaleY(-1);
+}
+
+/* ================================================================ main === */
+
+.wg__main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 8px 0 0;
+}
+
+.wg__title { margin: 0; font-size: 18px; font-weight: 500; line-height: 28px; color: var(--t1); }
+.wg__lede  { margin: 15px 0 0; font-size: 14px; line-height: 19px; color: var(--t2); }
+
+/* shared section heading: a 14px glyph, then the label 8px clear of it */
+.wg__h {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  color: var(--t1);
+}
+
+/* ----------------------------------------------------------- promo card -- */
+
+.wg__promo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid #c57bff;
+  border-radius: 16px;
+  background: rgba(197, 123, 255, 0.25);
+}
+
+.wg__promo-txt { position: relative; z-index: 2; width: 583.85px; max-width: 100%; height: 117.17px; }
+
+.wg__promo-p {
+  margin: 24.31px 0 0;
+  max-width: 512.2px;
+  font-size: 14px;
+  line-height: 18.2px;
+  color: var(--t1);
+}
+
+.wg__promo-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 15.66px;
+  height: 38.2px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background: var(--deep);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--t1);
+  transition: background 0.15s var(--ease);
+}
+
+.wg__promo-cta:hover { background: #0f2029; }
+
+/* the theme collage bleeds off the top and bottom of the card */
+.wg__promo-art {
+  position: absolute;
+  right: 186.09px;
+  bottom: -33.88px;
+  z-index: 1;
+  width: 560.99px;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* two flat purple shapes at 10%, pinned to the right edge */
+.wg__promo-deco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  overflow: hidden;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.wg__promo-deco img { position: absolute; width: 100%; height: 100%; }
+.wg__promo-deco img:nth-child(1) { inset: -6.89% 33.62% -23.41% 7.22%; width: auto; height: auto; }
+.wg__promo-deco img:nth-child(2) { inset: -6.49% 1.49% 53.33% 69.53%; width: auto; height: auto; }
+
+/* ---------------------------------------------------- featured / rails -- */
+
+.wg__feat,
+.wg__favs {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 24px 24px;
+  border-radius: 16px;
+}
+
+.wg__feat {
+  border: 1px solid var(--teal);
+  background: rgba(128, 245, 210, 0.25);
+}
+
+.wg__feat .wg__h { color: var(--teal); }
+
+.wg__favs { background: var(--deep); }
+
+.wg__feat-deco {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  width: 292px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Both rails are three equal cards. The design caps each at 470px and lets
+   the remainder fall to the right; at every width this prototype actually
+   renders at the columns land under that cap anyway, so they simply fill. */
+.wg__rail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 43px;
+  row-gap: 16px;
+  margin-top: 24px;
+}
+
+.wg__card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--card);
+}
+
+.wg__card-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 470 / 264.38;
+  object-fit: cover;
+}
+
+.wg__card-body { display: flex; gap: 16px; flex: 1; padding: 16px; }
+
+/* --------------------------------------------------- shared tile+text --- */
+
+.wg__tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 4px;
+  background: var(--bg);
+}
+
+.wg__tile .wg__ico { width: 24px; height: 24px; color: var(--t4); }
+
+.wg__meta { display: flex; flex-direction: column; gap: 6.92px; min-width: 0; }
+.wg__name { font-size: 14px; font-weight: 500; line-height: 21px; color: #f5f8fa; }
+.wg__desc { margin: 0; font-size: 14px; line-height: 21px; color: var(--t2); }
+
+/* ------------------------------------------------------- all widgets ---- */
+
+.wg__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 40px;
+}
+
+.wg__tools { display: flex; align-items: center; gap: 16px; }
+
+.wg__search { position: relative; width: 300px; }
+
+.wg__search .wg__ico {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  color: var(--t4);
+  pointer-events: none;
+}
+
+.wg__search input {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px 0 34px;
+  border: 1px solid var(--btn);
+  border-radius: 4px;
+  background: transparent;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--t1);
+  outline: none;
+}
+
+.wg__search input::placeholder { color: rgba(255, 255, 255, 0.3); }
+.wg__search input:focus { border-color: var(--btn-hi); }
+
+.wg__select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 176px;
+  height: 40px;
+  padding: 0 40px 0 8px;
+  border-radius: 4px;
+  background: var(--btn);
+  font-size: 14px;
+  color: var(--t1);
+  cursor: pointer;
+}
+
+.wg__select .wg__ico { color: var(--t1); }
+
+.wg__select::after {
+  content: '';
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: -7px;
+  background: var(--t1);
+  -webkit-mask: url(media/dashboard/wg/chevron.svg) no-repeat center / contain;
+  mask: url(media/dashboard/wg/chevron.svg) no-repeat center / contain;
+  transform: scaleY(-1);
+}
+
+.wg__all { display: flex; flex-direction: column; }
+.wg__all .wg__bar { margin-bottom: 40px; }
+
+.wg__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.wg__item {
+  position: relative;
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--card);
+  transition: background 0.12s var(--ease);
+}
+
+.wg__item:hover { background: #33424a; }
+
+.wg__item--new {
+  border-color: rgba(197, 123, 255, 0.35);
+  background: #3a3f52;
+}
+
+.wg__item--new:hover { background: #434860; }
+
+.wg__new {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: #c57bff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 14px;
+  color: var(--bg);
+}
+
+/* ------------------------------------------------------------ narrower -- */
+
+@media (max-width: 1360px) {
+  .wg__rail,
+  .wg__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wg__rail { column-gap: 24px; }
+  .wg__promo-art { display: none; }
+}
+
+@media (max-width: 1000px) {
+  .wg { grid-template-columns: minmax(0, 1fr); }
+  .wg__side { position: static; max-height: none; }
+  .wg__rail,
+  .wg__grid { grid-template-columns: minmax(0, 1fr); }
+  .wg__bar { flex-wrap: wrap; }
+}
