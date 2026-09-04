@@ -1,0 +1,440 @@
+/*
+ * streamlabs.com — Theme Library
+ * ------------------------------------------------------------------
+ * Source (Figma "Onboarding and Dashboard"):  11676:7222
+ *
+ * Third full-page takeover alongside alert-box.css and cloudbot.css, but a
+ * different shape: this one is the public themes storefront, so it brings its
+ * own marketing top bar and a 253px browse rail instead of the dashboard
+ * chrome. "Dashboard" in the top-right is the way back.
+ *
+ * Card geometry is arithmetic, not eyeballing. The design's rail is 1408px
+ * across seven columns → 201.14px pitch; minus the 20px gutter that leaves a
+ * 181.14px card, and 181.14 x 9/16 = 101.89px of artwork — which is exactly
+ * the `inset 0 0 68px 0` the design emits, and reconciles to the 169.89px
+ * card height (101.89 art + 12 pt + 22 title + 20 author line + 12 pb).
+ *
+ * Same icon gotcha as the rest of the project — a `url()` handed in through
+ * `var(--ico)` resolves against *this* stylesheet, so every --ico is written
+ * `url(media/dashboard/…)` even when it is set inline in the HTML.
+ */
+
+/* ── shared bits ──────────────────────────────────────────────────── */
+
+.thx__ico {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: var(--ico) no-repeat center / contain;
+  mask: var(--ico) no-repeat center / contain;
+}
+
+/* ── top bar ──────────────────────────────────────────────────────── */
+
+.thx__top {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--card);
+  background: var(--bg);
+}
+
+.thx__brand { width: 198px; flex: none; }
+.thx__brand img { width: 190px; height: 32px; }
+
+.thx__menu { display: flex; align-items: center; gap: 4px; }
+
+.thx__menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: var(--t4);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.thx__menu-btn:hover { background: var(--card); color: var(--t1); }
+
+/* the site bar's caret is its own export — a hair different from the rail's */
+.thx__menu-btn .thx__caret {
+  -webkit-mask-image: url(media/dashboard/th/chev.svg);
+  mask-image: url(media/dashboard/th/chev.svg);
+}
+
+.thx__top-right { display: flex; align-items: center; margin-left: auto; }
+
+.thx__dash {
+  padding-right: 16px;
+  color: var(--t2);
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.15s var(--ease);
+}
+
+.thx__dash:hover { color: var(--t1); }
+
+.thx__dl {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 40px;
+  padding: 0 9px;
+  border: 1px solid var(--teal);
+  border-radius: 4px;
+  color: var(--teal);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.thx__dl:hover { background: var(--teal); color: var(--deep); }
+.thx__dl .thx__ico { width: 14px; height: 14px; }
+
+/* ── shell ────────────────────────────────────────────────────────── */
+
+.thx { display: flex; align-items: stretch; }
+
+/* ── browse rail ──────────────────────────────────────────────────── */
+
+.thx__side {
+  display: flex;
+  flex: none;
+  width: 253px;
+  background: var(--card);
+  position: sticky;
+  top: 80px; /* clears the sticky site bar */
+  align-self: flex-start;
+  height: calc(100vh - 80px);
+}
+
+.thx__side-in {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  padding: 8px 0 24px;
+  overflow-y: auto;
+}
+
+/* the 18px strip down the right edge collapses the rail on the real site */
+.thx__drawer {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 18px;
+  border-left: 1px solid #1e2a30;
+  color: var(--t2);
+  transition: background 0.15s var(--ease);
+}
+
+.thx__drawer:hover { background: rgba(0, 0, 0, 0.13); }
+.thx__drawer .thx__ico { width: 12px; height: 12px; }
+
+.thx__nav { padding: 0 8px; }
+
+.thx__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 4px;
+  color: var(--t2);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap; /* "Admin: Carousel Manager" is a whisker under the 159px of room */
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.thx__link:hover { background: rgba(0, 0, 0, 0.13); color: var(--t1); }
+
+.thx__link[aria-current='page'] { background: rgba(0, 0, 0, 0.13); color: var(--teal); }
+
+.thx__sep { height: 1px; margin: 8px 16px 0; background: var(--bg); }
+
+/* ── collections / filters ────────────────────────────────────────── */
+
+.thx__filters { padding: 8px 24px 0; }
+
+/* one caret glyph, turned for whichever state the row is in */
+.thx__caret {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url(media/dashboard/th/a-caret.svg) no-repeat center / contain;
+  mask: url(media/dashboard/th/a-caret.svg) no-repeat center / contain;
+  transition: rotate 0.15s var(--ease);
+}
+
+.thx__disc {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 40px;
+  color: var(--t2);
+  font-size: 14px;
+  text-align: left;
+  transition: color 0.15s var(--ease);
+}
+
+.thx__disc:hover { color: var(--t1); }
+.thx__disc-t { flex: 1; min-width: 0; }
+.thx__disc[aria-expanded='true'] .thx__caret { rotate: 180deg; }
+
+/* the five taxonomy filters sit under Collections, same row metrics but
+   medium-weight and with no leading icon */
+.thx__filter {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  color: var(--t2);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  transition: color 0.15s var(--ease);
+}
+
+.thx__filter:hover { color: var(--t1); }
+.thx__filter .thx__caret { margin-left: auto; }
+
+.thx__feedback {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 16px 16px 0;
+  color: var(--t2);
+  font-size: 14px;
+  transition: color 0.15s var(--ease);
+}
+
+.thx__feedback:hover { color: var(--t1); }
+
+/* ── main column ──────────────────────────────────────────────────── */
+
+.thx__main { flex: 1; min-width: 0; padding-bottom: 48px; }
+
+/* Every horizontal strip on this page is the same object: a scroller with a
+   50px darkening fade over each edge and an optional next button. */
+.thx__rail-wrap { position: relative; }
+
+.thx__rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 181.14px;
+  gap: 20px;
+  padding: 0 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.thx__rail::-webkit-scrollbar { display: none; }
+
+.thx__fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  mix-blend-mode: darken;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.thx__fade--l { left: 0; background: linear-gradient(to right, var(--bg) 10%, transparent); }
+.thx__fade--r { right: 0; background: linear-gradient(to left, var(--bg) 10%, transparent); }
+
+.thx__next {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding-left: 8px;
+  color: var(--t1);
+  transition: translate 0.15s var(--ease);
+}
+
+.thx__next:hover { translate: 3px -50%; }
+
+/* ── category carousel ────────────────────────────────────────────── */
+
+.thx__cats { padding: 4px 0; }
+.thx__cats .thx__rail { grid-auto-columns: 181.14px; }
+
+.thx__cat {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 56px;
+  padding: 16px 24px;
+  border-radius: 32px;
+  background: var(--card);
+  overflow: clip;
+  isolation: isolate;
+}
+
+.thx__cat img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 117.62%;
+  object-fit: cover;
+}
+
+/* the scrim only darkens the top so the label keeps its contrast without
+   flattening the artwork underneath it */
+.thx__cat::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+}
+
+.thx__cat-t {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thx__cat:hover img { scale: 1.06; transition: scale 0.3s var(--ease); }
+
+/* ── shelves ──────────────────────────────────────────────────────── */
+
+.thx__shelf { padding-bottom: 16px; }
+
+/* Recommended is the loading state: black plate, no artwork yet */
+.thx__shelf--rec {
+  padding-top: 52px;
+  padding-bottom: 24px;
+  background: #000;
+}
+
+.thx__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px;
+}
+
+.thx__h1 { margin: 0; font-size: 30px; font-weight: 700; line-height: 36px; }
+.thx__h2 { margin: 0; font-size: 16px; font-weight: 700; line-height: 24px; }
+
+.thx__sub { margin: 8px 0 0; padding: 0 24px; color: var(--t4); font-size: 14px; }
+
+.thx__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  color: var(--t2);
+  font-size: 14px;
+  transition: color 0.15s var(--ease);
+}
+
+.thx__all:hover { color: var(--t1); }
+
+/* Recommended puts "See all" on its own line under the 30px heading */
+.thx__all-row { display: flex; height: 16px; padding: 0 24px; margin-top: 16px; }
+.thx__all-row .thx__all { align-items: flex-start; }
+
+.thx__shelf .thx__rail-wrap { margin-top: 16px; }
+.thx__shelf .thx__rail { padding-bottom: 4px; }
+
+/* ── theme card ───────────────────────────────────────────────────── */
+
+.thx__card {
+  display: block;
+  height: 169.89px;
+  border-radius: 8px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: clip;
+  transition: translate 0.15s var(--ease), box-shadow 0.15s var(--ease);
+}
+
+.thx__card:hover { translate: 0 -2px; box-shadow: 0 8px 16px rgba(9, 22, 29, 0.4); }
+
+/* 16:9 of the 181.14px card — the number the design's inset resolves to */
+.thx__art {
+  display: block;
+  position: relative;
+  height: 101.89px;
+  background:
+    linear-gradient(-45deg, rgb(43, 56, 63) 40%, rgba(43, 56, 63, 0.8) 50%, rgb(43, 56, 63) 60%),
+    linear-gradient(90deg, rgb(30, 42, 48), rgb(30, 42, 48));
+}
+
+.thx__art img { width: 100%; height: 100%; object-fit: cover; }
+
+.thx__card-t {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 12px 12px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.thx__card-t .thx__ico { width: 14px; height: 14px; margin-right: 8px; }
+
+.thx__card-n { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.thx__by {
+  display: block;
+  padding: 0 12px 12px;
+  color: var(--t4);
+  font-size: 14px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── skeletons ────────────────────────────────────────────────────── */
+
+/* The design draws Recommended mid-load: grey plates with an author line and
+   nothing else. The sweep is ours — a still skeleton reads as a broken card. */
+.thx__card--skel .thx__art {
+  background-size: 400% 100%, 100% 100%;
+  animation: thx-sweep 1.6s linear infinite;
+}
+
+.thx__card--skel .thx__card-t { height: 36px; padding-top: 12px; }
+
+@keyframes thx-sweep {
+  from { background-position: 100% 0, 0 0; }
+  to { background-position: -100% 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thx__card--skel .thx__art { animation: none; }
+  .thx__rail { scroll-behavior: auto; }
+}
+
+/* ── narrow ───────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .thx__side { display: none; }
+  .thx__menu { display: none; }
+}

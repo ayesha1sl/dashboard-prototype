@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="night-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Themes · streamlabs.com</title>
+    <link rel="stylesheet" href="assets/roboto.css" />
+    <link rel="stylesheet" href="assets/icons.css" />
+    <link rel="stylesheet" href="assets/dashboard.css" />
+    <link rel="stylesheet" href="assets/themes.css" />
+  </head>
+
+  <body class="db">
+    <!-- ==========================================================
+         Theme Library (Figma 11676:7222)
+
+         Third takeover after alert-box.html and cloudbot.html, but this one
+         is the public storefront rather than a settings screen, so it carries
+         streamlabs.com's own marketing bar. "Dashboard" top-right is the way
+         back, matching the design.
+         ========================================================== -->
+    <header class="thx__top">
+      <a class="thx__brand" href="index.html">
+        <img src="assets/media/dashboard/th/logo.svg" alt="Streamlabs" width="190" height="32" />
+      </a>
+
+      <nav class="thx__menu" aria-label="Site">
+        <button class="thx__menu-btn" type="button">
+          Products
+          <span class="thx__caret" aria-hidden="true"></span>
+        </button>
+        <button class="thx__menu-btn" type="button">
+          Resources
+          <span class="thx__caret" aria-hidden="true"></span>
+        </button>
+      </nav>
+
+      <div class="thx__top-right">
+        <a class="thx__dash" href="index.html">Dashboard</a>
+        <a class="thx__dl" href="index.html">
+          <span class="thx__ico" style="--ico: url(media/dashboard/th/download.svg)"></span>
+          Download Desktop
+        </a>
+      </div>
+    </header>
+
+    <div class="thx">
+      <!-- ------------------------------------------------- browse rail -->
+      <aside class="thx__side">
+        <div class="thx__side-in">
+          <nav class="thx__nav" aria-label="Theme library">
+            <a class="thx__link" href="themes.html" aria-current="page">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-home.svg)"></span>
+              Home
+            </a>
+            <a class="thx__link" href="#">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-search.svg)"></span>
+              Advanced Search
+            </a>
+            <a class="thx__link" href="#">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-help.svg)"></span>
+              Help/Guides
+            </a>
+            <a class="thx__link" href="#">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-admin-collections.svg)"></span>
+              Admin: Collections
+            </a>
+            <a class="thx__link" href="#">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-admin-keywords.svg)"></span>
+              Admin: Keywords Editor
+            </a>
+            <a class="thx__link" href="#">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-admin-themes.svg)"></span>
+              Admin: Themes
+            </a>
+            <a class="thx__link" href="#">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-admin-carousel.svg)"></span>
+              Admin: Carousel Manager
+            </a>
+          </nav>
+
+          <div class="thx__sep"></div>
+
+          <div class="thx__filters">
+            <button class="thx__disc" type="button" aria-expanded="true" aria-controls="th-filters">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/a-collections.svg)"></span>
+              <span class="thx__disc-t">Collections</span>
+              <span class="thx__caret" aria-hidden="true"></span>
+            </button>
+
+            <div id="th-filters">
+              <button class="thx__filter" type="button">
+                Style
+                <span class="thx__caret" aria-hidden="true"></span>
+              </button>
+              <button class="thx__filter" type="button">
+                Game
+                <span class="thx__caret" aria-hidden="true"></span>
+              </button>
+              <button class="thx__filter" type="button">
+                Holiday
+                <span class="thx__caret" aria-hidden="true"></span>
+              </button>
+              <button class="thx__filter" type="button">
+                Language
+                <span class="thx__caret" aria-hidden="true"></span>
+              </button>
+              <button class="thx__filter" type="button">
+                Category
+                <span class="thx__caret" aria-hidden="true"></span>
+              </button>
+            </div>
+          </div>
+
+          <a class="thx__feedback" href="#">
+            <span class="thx__ico" style="--ico: url(media/dashboard/th/a-feedback.svg)"></span>
+            Share Feedback
+          </a>
+        </div>
+
+        <button class="thx__drawer" type="button" aria-label="Collapse the browse rail">
+          <span class="thx__ico" style="--ico: url(media/dashboard/th/a-drawer.svg)"></span>
+        </button>
+      </aside>
+
+      <!-- -------------------------------------------------------- main -->
+      <main class="thx__main">
+        <!-- --------------------------------------- category carousel -->
+        <section class="thx__cats" aria-label="Browse by category">
+          <div class="thx__rail-wrap">
+            <div class="thx__rail" id="th-cats">
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-cozy.png" alt="" />
+                <span class="thx__cat-t">Cozy</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-tiktok.png" alt="" />
+                <span class="thx__cat-t">TikTok &amp; Shorts Friendly</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-music.png" alt="" />
+                <span class="thx__cat-t">Music</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-space.png" alt="" />
+                <span class="thx__cat-t">Space</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-gamepulse.png" alt="" />
+                <span class="thx__cat-t">Game Pulse</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-gta.png" alt="" />
+                <span class="thx__cat-t">Grand Theft Auto</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-justchatting.png" alt="" />
+                <span class="thx__cat-t">Just Chatting</span>
+              </a>
+              <a class="thx__cat" href="#">
+                <img src="assets/media/dashboard/th/c-simple.png" alt="" />
+                <span class="thx__cat-t">Simple &amp; Minimalist</span>
+              </a>
+            </div>
+            <span class="thx__fade thx__fade--r" aria-hidden="true"></span>
+            <button class="thx__next" type="button" data-rail="th-cats" aria-label="Go to the next slide">
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/next.svg)"></span>
+            </button>
+          </div>
+        </section>
+
+        <!-- ------------------------------------ recommended (loading) -->
+        <!-- The design draws this shelf mid-fetch: a black plate of grey
+             skeletons with only the "by" line laid in. Kept as-is. -->
+        <section class="thx__shelf thx__shelf--rec" aria-labelledby="th-rec-h" aria-busy="true">
+          <div class="thx__head">
+            <h1 class="thx__h1" id="th-rec-h">Recommended for you</h1>
+          </div>
+          <div class="thx__all-row">
+            <a class="thx__all" href="#">
+              See all
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/arrow-right.svg)"></span>
+            </a>
+          </div>
+
+          <div class="thx__rail-wrap">
+            <div class="thx__rail">
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+              <span class="thx__card thx__card--skel"><span class="thx__art"></span><span class="thx__card-t"></span><span class="thx__by">by</span></span>
+            </div>
+            <span class="thx__fade thx__fade--l" aria-hidden="true"></span>
+            <span class="thx__fade thx__fade--r" aria-hidden="true"></span>
+          </div>
+        </section>
+
+        <!-- ------------------------------------------ featured overlays -->
+        <section class="thx__shelf" aria-labelledby="th-feat-h">
+          <div class="thx__head">
+            <h2 class="thx__h2" id="th-feat-h">Featured Overlays</h2>
+            <a class="thx__all" href="#">
+              See all
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/arrow-right.svg)"></span>
+            </a>
+          </div>
+          <p class="thx__sub">
+            Check out our featured overlays complete with webcam frames, scene cards, and more.
+          </p>
+
+          <div class="thx__rail-wrap">
+            <div class="thx__rail">
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-spider.png" alt="Spider" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Spider</span>
+                </span>
+                <span class="thx__by">by Kron</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-streamer.png" alt="Streamer" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Streamer</span>
+                </span>
+                <span class="thx__by">by SylphVisuals</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-red-matter.png" alt="Red Matter" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Red Matter</span>
+                </span>
+                <span class="thx__by">by Kron</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-warfare-4.png" alt="Warfare 4" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Warfare 4</span>
+                </span>
+                <span class="thx__by">by Imagine</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-chrome-y2k.png" alt="Chrome Y2K" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Chrome Y2K</span>
+                </span>
+                <span class="thx__by">by SylphVisuals</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-chroma.png" alt="Chroma" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Chroma</span>
+                </span>
+                <span class="thx__by">by Imagine</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-purple-hole.png" alt="Purple Hole" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Purple Hole</span>
+                </span>
+                <span class="thx__by">by Imagine</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-dark-pirate.png" alt="Dark Pirate" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type2.svg)"></span>
+                  <span class="thx__card-n">Dark Pirate</span>
+                </span>
+                <span class="thx__by">by Kron</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ----------------------------------------------- newly added -->
+        <section class="thx__shelf" aria-labelledby="th-new-h">
+          <div class="thx__head">
+            <h2 class="thx__h2" id="th-new-h">Newly Added</h2>
+            <a class="thx__all" href="#">
+              See all
+              <span class="thx__ico" style="--ico: url(media/dashboard/th/arrow-right.svg)"></span>
+            </a>
+          </div>
+
+          <div class="thx__rail-wrap">
+            <div class="thx__rail">
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-dark-synth.png" alt="Dark Synth" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Dark Synth</span>
+                </span>
+                <span class="thx__by">by Imagine</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-error.png" alt="Error" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Error</span>
+                </span>
+                <span class="thx__by">by Tactical Lion Designs</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-midnight.png" alt="Midnight" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Midnight</span>
+                </span>
+                <span class="thx__by">by Kron</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-retro-vi.png" alt="Retro VI" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Retro VI</span>
+                </span>
+                <span class="thx__by">by Kron</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-spider-web.png" alt="Spider Web" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Spider Web</span>
+                </span>
+                <span class="thx__by">by SylphVisuals</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-vortex.png" alt="Vortex" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Vortex</span>
+                </span>
+                <span class="thx__by">by Kron</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-paper-grunge.png" alt="Paper Grunge" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type.svg)"></span>
+                  <span class="thx__card-n">Paper Grunge</span>
+                </span>
+                <span class="thx__by">by Stream Pulse</span>
+              </a>
+              <a class="thx__card" href="#">
+                <span class="thx__art"><img src="assets/media/dashboard/th/t-dark-noise.png" alt="Dark Noise" /></span>
+                <span class="thx__card-t">
+                  <span class="thx__ico" style="--ico: url(media/dashboard/th/card-type2.svg)"></span>
+                  <span class="thx__card-n">Dark Noise</span>
+                </span>
+                <span class="thx__by">by SylphVisuals</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // ------------------------------------------------ carousel paging
+      // One page = whatever is currently on screen, so the arrow keeps up
+      // with the viewport rather than a hard-coded card count.
+      document.querySelectorAll('.thx__next').forEach(function (btn) {
+        var rail = document.getElementById(btn.dataset.rail);
+        btn.addEventListener('click', function () {
+          var end = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 2;
+          rail.scrollTo({ left: end ? 0 : rail.scrollLeft + rail.clientWidth });
+        });
+      });
+
+      // ---------------------------------------------- filter disclosure
+      document.querySelectorAll('.thx__disc[aria-controls]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+        });
+      });
+    </script>
+  </body>
+</html>

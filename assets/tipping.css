@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Tipping — My Tips (Figma 11677:19929, main column 11677:20159)
+
+   Unlike alert-box / cloudbot / themes, this is NOT a takeover: the dashboard
+   top bar and left rail stay exactly as they are and only the main column is
+   replaced. Everything here is scoped under .tip so it can't leak into the
+   shell it borrows.
+   ========================================================================== */
+
+.tip {
+  display: flex;
+  flex-direction: column;
+  max-width: 1328px;
+  padding-bottom: 24px;
+}
+
+/* ── header row ──────────────────────────────────────────────────── */
+/* "My Tips" on the left, the tip-page URL + its edit affordance right. */
+
+.tip__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-height: 50px;
+}
+
+.tip__h1 {
+  margin: 0;
+  padding-bottom: 12px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: var(--t1);
+}
+
+.tip__page {
+  display: flex;
+  align-items: center;
+}
+
+.tip__page-l {
+  padding-right: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--t1);
+}
+
+.tip__url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 156px;
+  height: 40px;
+  padding-right: 8px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--t2);
+}
+
+.tip__edit {
+  display: block;
+  flex: none;
+  width: 14px;
+  height: 14px;
+  /* the design nudges the pencil up off the text baseline by 1.5px */
+  margin-bottom: 1.5px;
+  margin-right: 8px;
+  border: 0;
+  padding: 0;
+  background: var(--t2);
+  -webkit-mask: url(media/dashboard/tip/edit.svg) no-repeat center / contain;
+  mask: url(media/dashboard/tip/edit.svg) no-repeat center / contain;
+  cursor: pointer;
+  transition: background 0.12s var(--ease);
+}
+
+.tip__edit:hover { background: var(--t1); }
+
+/* ── body ────────────────────────────────────────────────────────── */
+
+.tip__body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.tip__sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--t2);
+}
+
+/* ── tabs ────────────────────────────────────────────────────────── */
+/* A 30px strip; the active tab carries a 2px white underline and steals
+   2.5px of its own bottom padding to make room for it. */
+
+.tip__tabs {
+  display: flex;
+  height: 30px;
+}
+
+.tip__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 4.25px 16px 4.75px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--t2);
+  text-decoration: none;
+  transition: color 0.12s var(--ease);
+}
+
+.tip__tab:hover { color: var(--t1); }
+
+.tip__tab[aria-current='page'] {
+  padding-top: 3.25px;
+  padding-bottom: 5.75px;
+  border-bottom: 2px solid var(--t1);
+  color: var(--t1);
+}
+
+/* ── method cards ────────────────────────────────────────────────── */
+
+.tip__methods {
+  display: flex;
+  gap: 32px;
+  padding-top: 28px;
+}
+
+.tip__col {
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 16px;
+}
+
+.tip__card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 8px;
+  background: var(--deep);
+}
+
+/* The PayPal mark's export is padded on all sides inside a 22.5×19.4 box;
+   re-boxed onto its own artwork it is 10.655×12.414, so the trailing 11.85px
+   of that box becomes the gap to the label and the 2.75px of head-room
+   becomes the offset from the card's top padding. */
+.tip__mark {
+  flex: none;
+  align-self: flex-start;
+  width: 10.655px;
+  height: 12.414px;
+  margin: 18.25px 11.85px 0 0;
+}
+
+.tip__name {
+  padding-right: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: var(--t1);
+  white-space: nowrap;
+}
+
+/* likewise a 14px glyph shipped in a 30px box — 16px of it is trailing gap */
+.tip__info {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-right: 16px;
+  border: 0;
+  padding: 0;
+  background: var(--btn);
+  -webkit-mask: url(media/dashboard/tip/info.svg) no-repeat center / contain;
+  mask: url(media/dashboard/tip/info.svg) no-repeat center / contain;
+  cursor: help;
+  transition: background 0.12s var(--ease);
+}
+
+.tip__info:hover { background: var(--btn-hi); }
+
+.tip__badge {
+  display: flex;
+  align-items: center;
+  flex: none;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: rgba(206, 255, 237, 0.16);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  color: #ceffed;
+  white-space: nowrap;
+}
+
+/* Pinned rather than flowed: the design parks Connect at a fixed 500px in
+   both columns so the two buttons line up whatever the label runs to. */
+.tip__connect {
+  position: absolute;
+  left: 500px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 124px;
+  height: 33px;
+  border: 0;
+  border-radius: 4px;
+  padding: 1px 13px;
+  background: var(--teal);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 32px;
+  color: var(--deep);
+  cursor: pointer;
+  transition: background 0.12s var(--ease);
+}
+
+.tip__connect:hover { background: var(--teal-hi); }
+
+.tip__connect[data-on='1'] {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--hairline-2);
+  color: var(--t2);
+}
+
+/* Below the design's 1708px the fixed 500px offset would collide with a long
+   label, so the button rejoins the flow at the right edge of the card. */
+@media (max-width: 1500px) {
+  .tip__methods { flex-direction: column; gap: 16px; }
+  .tip__connect { position: static; transform: none; margin-left: auto; }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="night-theme">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Tips · streamlabs.com</title>
+    <link rel="stylesheet" href="assets/roboto.css" />
+    <link rel="stylesheet" href="assets/icons.css" />
+    <link rel="stylesheet" href="assets/dashboard.css" />
+    <link rel="stylesheet" href="assets/tipping.css" />
+  </head>
+
+  <body class="db">
+    <!-- ==========================================================
+         Tipping · My Tips (Figma 11677:19929)
+
+         Not a takeover. The top bar and the left rail are the dashboard's
+         own, carried over verbatim so the chrome never moves between the
+         two pages — only the main column changes, and Tipping takes the
+         rail's selected state.
+         ========================================================== -->
+
+    <!-- ============================================================ top bar -->
+    <header class="tb">
+      <div class="tb__in">
+        <a class="tb__logo" href="index.html" aria-label="Streamlabs">
+          <img src="assets/media/dashboard/live/logo.svg" alt="" width="40" height="36" />
+        </a>
+
+        <div class="tb__search">
+          <span class="icon-search" aria-hidden="true"></span>
+          <input type="search" placeholder="Search" aria-label="Search Streamlabs" />
+        </div>
+
+        <div class="tb__end">
+          <a class="ultra-pill" href="#">
+            <span class="ultra-pill__mid">
+              <span class="ultra-pill__face">
+                <img
+                  class="ultra-pill__ico"
+                  src="assets/media/dashboard/live/ultra-icon.svg"
+                  alt=""
+                  width="14"
+                  height="14"
+                />
+                Upgrade to Ultra
+              </span>
+            </span>
+          </a>
+
+          <a class="tb__icon tb__icon--apps" href="#" aria-label="Apps">
+            <img src="assets/media/dashboard/live/tb-apps.svg" alt="" width="25" height="25" />
+          </a>
+
+          <a class="tb__icon tb__bell" href="#" aria-label="Notifications, 1 unread">
+            <img src="assets/media/dashboard/live/tb-bell.svg" alt="" width="14" height="14" />
+            <b>1</b>
+          </a>
+
+          <a class="tb__me" href="#" aria-label="Account">
+            <img class="tb__avatar" src="assets/media/dashboard/live/tb-avatar.png" alt="" width="32" height="32" />
+            <img class="tb__caret" src="assets/media/dashboard/live/tb-caret.svg" alt="" width="14" height="14" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="shell">
+      <!-- ========================================================= left rail -->
+      <nav class="rail" aria-label="Dashboard">
+        <a class="rail__cta" href="#">
+          <span class="icon-download" aria-hidden="true"></span>Streamlabs Desktop
+        </a>
+
+        <div class="rail__group">
+          <div class="rail__items">
+            <a class="rail__link" href="index.html"><span class="rail__ico" style="--ico: url(media/dashboard/nav/dashboard.svg)"></span>Dashboard</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/analytics.svg)"></span>Analytics</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/events.svg)"></span>Recent Events</a>
+          </div>
+        </div>
+
+        <div class="rail__group">
+          <div class="rail__head">Streaming essentials</div>
+          <div class="rail__items">
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/widgets.svg)"></span>Widgets<span class="rail__badge">New</span></a>
+            <a class="rail__link" href="alert-box.html"><span class="rail__ico" style="--ico: url(media/dashboard/nav/alertbox.svg)"></span>Alert Box</a>
+            <a class="rail__link" href="cloudbot.html"><span class="rail__ico" style="--ico: url(media/dashboard/nav/cloudbot.svg)"></span>Cloudbot</a>
+            <a class="rail__link" href="themes.html"><span class="rail__ico" style="--ico: url(media/dashboard/nav/themes.svg)"></span>Theme Library</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/multistream.svg)"></span>Multistream</a>
+          </div>
+        </div>
+
+        <div class="rail__group">
+          <div class="rail__head">Earn and grow</div>
+          <div class="rail__items">
+            <a class="rail__link is-active" href="tipping.html" aria-current="page"><span class="rail__ico" style="--ico: url(media/dashboard/nav/tipping.svg)"></span>Tipping</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/website.svg)"></span>Custom Website</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/appstore.svg)"></span>Desktop App Store</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/merch.svg)"></span>Merch Store</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/sponsorships.svg)"></span>Sponsorships</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/charity.svg)"></span>Charity</a>
+            <a class="rail__link" href="#"><span class="rail__ico rail__ico--upright" style="--ico: url(media/dashboard/nav/allstars.svg)"></span>All Stars</a>
+            <a class="rail__link" href="#"><span class="rail__ico" style="--ico: url(media/dashboard/nav/panel.svg)"></span>Panel Maker</a>
+          </div>
+        </div>
+
+        <div class="rail__foot">
+          <div class="rail__foot-links">
+            <a href="#">Content Hub</a><a href="#">Blog</a><a href="#">Accessibility</a>
+          </div>
+          <div class="rail__social">
+            <a href="#" aria-label="X"><img src="assets/media/dashboard/social/x.svg" alt="" width="20" height="20" /></a>
+            <a href="#" aria-label="YouTube"><img src="assets/media/dashboard/social/youtube.svg" alt="" width="27" height="20" /></a>
+            <a href="#" aria-label="Instagram"><img src="assets/media/dashboard/social/instagram.svg" alt="" width="19" height="20" /></a>
+            <a href="#" aria-label="TikTok"><img src="assets/media/dashboard/social/tiktok.svg" alt="" width="20" height="20" /></a>
+            <a href="#" aria-label="Discord"><img src="assets/media/dashboard/social/discord.svg" alt="" width="20" height="20" /></a>
+          </div>
+        </div>
+      </nav>
+
+      <!-- ============================================================== main -->
+      <main class="main">
+        <div class="tip">
+          <!-- ------------------------------------------------- header row -->
+          <div class="tip__head">
+            <h1 class="tip__h1">My Tips</h1>
+
+            <div class="tip__page">
+              <span class="tip__page-l">Your Tip Page:</span>
+              <span class="tip__url">
+                https://streamlabs.com/ayeshakay1/tip
+                <button class="tip__edit" type="button" aria-label="Edit your tip page URL"></button>
+              </span>
+            </div>
+          </div>
+
+          <div class="tip__body">
+            <p class="tip__sub">View your tip settings, history, and tippers</p>
+
+            <!-- ------------------------------------------------------ tabs -->
+            <nav class="tip__tabs" aria-label="Tipping">
+              <a class="tip__tab" href="tipping.html" aria-current="page">Tip Methods</a>
+              <a class="tip__tab" href="#">Tip Settings</a>
+              <a class="tip__tab" href="#">Tip History</a>
+              <a class="tip__tab" href="#">Tip Page Design</a>
+            </nav>
+
+            <!-- --------------------------------------------- tip methods -->
+            <div class="tip__methods">
+              <div class="tip__col">
+                <div class="tip__card">
+                  <img class="tip__mark" src="assets/media/dashboard/tip/paypal.svg" alt="" width="11" height="12" />
+                  <span class="tip__name">PayPal Standard</span>
+                  <button class="tip__info" type="button" aria-label="About PayPal Standard"></button>
+                  <button class="tip__connect" type="button" data-on="0">Connect</button>
+                </div>
+              </div>
+
+              <div class="tip__col">
+                <div class="tip__card">
+                  <img class="tip__mark" src="assets/media/dashboard/tip/paypal.svg" alt="" width="11" height="12" />
+                  <span class="tip__name">PayPal Business</span>
+                  <button class="tip__info" type="button" aria-label="About PayPal Business"></button>
+                  <span class="tip__badge">Recommended for Credit Cards</span>
+                  <button class="tip__connect" type="button" data-on="0">Connect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      // Connect is the only live control on the page — it flips to a
+      // disconnect affordance so the state is visible without a real OAuth hop.
+      document.querySelectorAll('.tip__connect').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var on = btn.dataset.on === '1';
+          btn.dataset.on = on ? '0' : '1';
+          btn.textContent = on ? 'Connect' : 'Disconnect';
+        });
+      });
+    </script>
+  </body>
+</html>
