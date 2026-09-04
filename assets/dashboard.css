@@ -540,18 +540,26 @@ img { display: block; max-width: 100%; }
     'snap  .    rail';
 }
 
-.grid[data-setup='off'][data-promo='none'] { grid-template-areas: 'snap deck rail'; }
+/* nothing left to dismiss: the "more features" card takes the bottom-left cell
+   so the column doesn't end on a single row (11753:69335) */
+.grid[data-setup='off'][data-promo='none'] {
+  grid-template-areas:
+    'snap deck rail'
+    'more .    rail';
+}
 
 /* which card is holding the promo slot right now. Cloudbot only ever appears
    after the follow-alert card is closed, so it starts out hidden; growth mode
    empties the slot altogether. */
 #bot,
+#more,
 .grid[data-promo='bot'] #alert,
 .grid[data-promo='none'] #alert,
 .grid[data-growth='on'] #alert,
 .grid[data-growth='on'] #bot { display: none; }
 
 .grid[data-promo='bot']:not([data-growth='on']) #bot { display: flex; }
+.grid[data-setup='off'][data-promo='none'] #more { display: flex; }
 
 .grid[data-growth='on'] #snap { align-self: start; }
 
@@ -560,6 +568,7 @@ img { display: block; max-width: 100%; }
 #alert { grid-area: promo; }
 #bot   { grid-area: promo; }
 #deck  { grid-area: deck; }
+#more  { grid-area: more; }
 .ads   { grid-area: rail; }
 
 /* ── shared card ─────────────────────────────────────────────────── */
@@ -1183,6 +1192,49 @@ img { display: block; max-width: 100%; }
 }
 
 .promo__btn:hover { background: var(--btn-hi); }
+
+/* ── more features (11753:69335) ─────────────────────────────────────
+   Shown only once Stream Setup and the whole promo slot have been dismissed.
+   Borrows the promo copy block; the artwork below it is a fixed 413×203 stage
+   the mark, the wishlist heart and the two metric chips are pinned inside. */
+
+.mf {
+  height: 495px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.mf__stage { display: grid; flex: 1; place-items: center; min-height: 0; padding: 1px 8px; }
+
+.mf__art { position: relative; width: 413px; height: 203px; }
+
+.mf__mark { position: absolute; left: 103px; top: 20.69px; width: 199.61px; height: 179.31px; }
+
+/* the heart perches on the mark's shoulder, tilted 15° like the dialog's */
+.mf__wish { position: absolute; left: 249.79px; top: 5.43px; width: 48.28px; height: 48.28px; rotate: 15deg; }
+
+.mf__metric {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 8px;
+  background: #1e2c35;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.mf__metric--views { left: 0; top: 13px; }
+.mf__metric--subs { left: 289px; top: 143px; }
+
+.mf__label { color: #9ca3af; font-size: 11px; font-weight: 500; line-height: normal; }
+.mf__row { display: flex; align-items: center; gap: 8px; }
+.mf__row b { color: var(--t1); font-size: 16px; font-weight: 700; line-height: normal; }
 
 /* ── side rail ───────────────────────────────────────────────────── */
 
