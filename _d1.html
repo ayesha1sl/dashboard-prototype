@@ -573,7 +573,7 @@
                 <button class="deck__arrow" id="deck-prev" type="button" aria-label="Previous theme">
                   <span class="deck__chev" style="--ico: url(media/dashboard/promo/chev-left.svg)"></span>
                 </button>
-                <span class="deck__count" id="deck-count" aria-live="polite">1 / 4</span>
+                <span class="deck__count" id="deck-count" aria-live="polite">1 / 2</span>
                 <button class="deck__arrow" id="deck-next" type="button" aria-label="Next theme">
                   <span class="deck__chev" style="--ico: url(media/dashboard/promo/chev-right.svg)"></span>
                 </button>
@@ -591,7 +591,6 @@
                     id="deck-img"
                     src="assets/media/dashboard/promo/alert-themes.gif"
                     alt="An overlay theme framing a live Fortnite stream"
-                    data-fit="cover"
                     width="1920"
                     height="1080"
                   />
@@ -1232,30 +1231,14 @@
       // ends. Swapping src restarts each gif from its first frame, which is
       // what you want here — every page plays its loop from the top.
       (function () {
-        // Page 1 is a full-bleed capture of a stream, so it fills the window
-        // and takes the crop. Pages 2–4 are alerts we keyed off their flat
-        // backdrops (see _build/key-alert-art.py) — they have no edges to
-        // bleed, so they are fitted whole and float on the card instead.
         var slides = [
           {
             src: 'assets/media/dashboard/promo/alert-themes.gif',
             alt: 'An overlay theme framing a live Fortnite stream',
-            fit: 'cover',
           },
           {
-            src: 'assets/media/dashboard/promo/engage-alerts.webp',
-            alt: 'Neon subscriber and follower alerts animating in',
-            fit: 'contain',
-          },
-          {
-            src: 'assets/media/dashboard/promo/alerts-hero.webp',
-            alt: 'A blue follower alert sliding in and announcing Kevin',
-            fit: 'contain',
-          },
-          {
-            src: 'assets/media/dashboard/promo/stream-starting.webp',
-            alt: 'A purple subscriber alert above a Stream Is Starting scene',
-            fit: 'contain',
+            src: 'assets/media/dashboard/../../../_probe.png',
+            alt: 'Follower and subscriber alerts animating in over a stream',
           },
         ];
 
@@ -1263,8 +1246,8 @@
         var count = document.getElementById('deck-count');
         var at = 0;
 
-        // each page is north of a megabyte; fetch them up front so a click
-        // swaps straight to a decoded frame instead of leaving a gap
+        // the second page is a couple of megabytes; fetch it up front so the
+        // first click swaps straight to a decoded frame instead of a gap
         slides.slice(1).forEach(function (s) {
           var pre = new Image();
           pre.src = s.src;
@@ -1274,7 +1257,6 @@
           at = (i + slides.length) % slides.length;   // wraps both ways
           img.src = slides[at].src;
           img.alt = slides[at].alt;
-          img.dataset.fit = slides[at].fit;
           count.textContent = at + 1 + ' / ' + slides.length;
         }
 
@@ -1313,5 +1295,5 @@
         sync();
       });
     </script>
-  </body>
+  <script>setTimeout(function(){document.getElementById('deck-next').click();},400);</script></body>
 </html>
